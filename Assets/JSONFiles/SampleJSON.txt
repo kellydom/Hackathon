@@ -1,0 +1,1 @@
+{"name": "Gastroesophageal Reflux Disease","chief_complaint": "Chest pain","demographics": {"sex": {"male": 0.5,"female": 0.5},"age": {"young": 0.1,"middle": 0.4,"old": 0.5},"race": {"black": 0.3,"white": 0.3,"asian": 0.4}}}

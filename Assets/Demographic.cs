@@ -3,18 +3,61 @@ using System.Collections;
 
 public class Demographic
 {
+	public enum Sex{
+		Male,
+		Female
+	};
+	public enum Age{
+		Young,
+		Middle,
+		Old
+	};
+	public enum Race{
+		White,
+		Black,
+		Asian
+	};
 
-	public string sex;
+	public Sex sex;
 
-	public string age;
+	public Age age;
 
-	public string race;
+	public Race race;
 
 	public Demographic(string newSex, string newAge, string newRace)
 	{
-		sex = newSex;
-		age = newAge;
-		race = newRace;
+		switch(newSex){
+		case "male":
+			sex = Sex.Male;
+			break;
+		case "female":
+			sex = Sex.Female;
+			break;
+		}
+
+		switch(newAge){
+		case "young":
+			age = Age.Young;
+			break;
+		case "middle":
+			age = Age.Middle;
+			break;
+		case "old":
+			age = Age.Old;
+			break;
+		}
+
+		switch(newRace){
+		case "white":
+			race = Race.White;
+			break;
+		case "black":
+			race = Race.Black;
+			break;
+		case "asian":
+			race = Race.Asian;
+			break;
+		}
 	}
 
 	// Use this for initialization

@@ -1,19 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 
-public class Disease
+public class Disease : MonoBehaviour
 {
 
 	public string name;
 
 	public string complaint;
 
-	public Demographic dems;
+	
+	public Dictionary<string, float> sexProbs = new Dictionary<string, float>();
+	public Dictionary<string, float> ageProbs = new Dictionary<string, float>();
+	public Dictionary<string, float> raceProbs = new Dictionary<string, float>();
+
 	
 	public Disease(JSONObject obj)
 	{
 		double roll;
+
+
 		for(int i = 0; i < obj.Count; i++)
 		{
 			if(obj.keys[i] != null)
@@ -39,18 +46,11 @@ public class Disease
 							JSONObject sexObj = demObj.list[demographicIterator];
 							double maleProbability = 0.0;
 							double femaleProbability = 0.0;
-							for(int sexIterator = 0; sexIterator < 2; sexIterator++)
+							for(int sexIterator = 0; sexIterator < sexObj.Count; sexIterator++)
 							{
-								if((string)sexObj.keys[sexIterator] == "male")
-								{
-									maleProbability = sexObj.list[sexIterator].f;
-								}
-								else
-								{
-									femaleProbability = sexObj.list[sexIterator].f;
-								}
+								sexProbs.Add ((string)sexObj.keys[sexIterator], sexObj.list[sexIterator].f);
 							}
-							System.Diagnostics.Debug.Assert((maleProbability + femaleProbability) == 1.0);
+							/*System.Diagnostics.Debug.Assert((maleProbability + femaleProbability) == 1.0);
 							roll = Random.Range(0.0F, 1.0F);
 							if(roll <= maleProbability)
 							{
@@ -59,7 +59,7 @@ public class Disease
 							else
 							{
 								sex = "female";
-							}
+							}*/
 							break;
 						case "age":
 							JSONObject ageObj = demObj.list[demographicIterator];
@@ -68,7 +68,8 @@ public class Disease
 							double oldProbability = 0;
 							for(int ageIterator = 0; ageIterator < ageObj.keys.Count; ageIterator++)
 							{
-								switch((string)ageObj.keys[ageIterator])
+								ageProbs.Add ((string)ageObj.keys[ageIterator], ageObj.list[ageIterator].f);
+								/*switch((string)ageObj.keys[ageIterator])
 								{
 								case "young":
 									youngProbability = ageObj.list[ageIterator].f;
@@ -79,9 +80,9 @@ public class Disease
 								case "old":
 									oldProbability = ageObj.list[ageIterator].f;
 									break;
-								}
+								}*/
 							}
-							System.Diagnostics.Debug.Assert((youngProbability + middleProbability + oldProbability) == 1.0);
+							/*System.Diagnostics.Debug.Assert((youngProbability + middleProbability + oldProbability) == 1.0);
 							roll = Random.Range(0.0F, 1.0F);
 							if(roll <= youngProbability)
 							{
@@ -94,7 +95,7 @@ public class Disease
 							else
 							{
 								age = "old";
-							}
+							}*/
 							break;
 						case "race":
 							JSONObject raceObj = demObj.list[demographicIterator];
@@ -104,7 +105,8 @@ public class Disease
 							double hispanicProbability = 0;
 							for(int raceIterator = 0; raceIterator < raceObj.keys.Count; raceIterator++)
 							{
-								switch((string)raceObj.keys[raceIterator])
+								raceProbs.Add ((string)raceObj.keys[raceIterator], raceObj.list[raceIterator].f);
+								/*switch((string)raceObj.keys[raceIterator])
 								{
 								case "black":
 									blackProbability = raceObj.list[raceIterator].f;
@@ -118,9 +120,9 @@ public class Disease
 								case "hispanic":
 									hispanicProbability = raceObj.list[raceIterator].f;
 									break;
-								}
+								}*/
 							}
-							System.Diagnostics.Debug.Assert((blackProbability + whiteProbability + asianProbability + hispanicProbability) == 1.0);
+							/*System.Diagnostics.Debug.Assert((blackProbability + whiteProbability + asianProbability + hispanicProbability) == 1.0);
 							roll = Random.Range(0.0F, 1.0F);
 							if(roll <= blackProbability)
 							{
@@ -137,11 +139,12 @@ public class Disease
 							else
 							{
 								race = "hispanic";
-							}
+							}*/
 							break;
 						}
 					}
-					dems = new Demographic(sex, age, race);					break;
+					//dems = new Demographic(sex, age, race);					
+					break;
 				}
 			}
 		}

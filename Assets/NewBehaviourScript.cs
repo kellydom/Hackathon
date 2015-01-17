@@ -12,9 +12,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
 		print (theAIDS.name);
 		print (theAIDS.complaint);
-		print (theAIDS.dems.sex);
+		/*print (theAIDS.dems.sex);
 		print (theAIDS.dems.age);
-		print (theAIDS.dems.race);
+		print (theAIDS.dems.race);*/
 
 	}
 	

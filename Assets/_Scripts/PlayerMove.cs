@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
+	public static PlayerMove S;
 
 	public float walkSpeed;
 	public float jumpSpeed;
 	public float jumpHoldTime;
 	float jumpTimer;
 	bool jumping;
+	bool flipping;
 
 	public float grav;
 
@@ -19,8 +21,18 @@ public class PlayerMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if(S == null){
+			S = this;
+		}
+		else{
+			if(this != S){
+				Destroy(this.gameObject);
+			}
+		}
+
+
 		jumpTimer = 0;
-		jumping = false;
+		jumping = flipping = false;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +46,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	IEnumerator QuickFlip(Vector3 dir){
+		flipping = true;
 		float t = 0;
 
 		Vector3 oldEuler = transform.rotation.eulerAngles;
@@ -48,6 +61,7 @@ public class PlayerMove : MonoBehaviour {
 			yield return 0;
 		}
 		transform.right = dir;
+		flipping = false;
 	}
 
 	void Move(){
@@ -55,18 +69,18 @@ public class PlayerMove : MonoBehaviour {
 		if(Input.GetKey(KeyCode.W)){
 			pos.z += Time.deltaTime * walkSpeed;
 		}
-		if(Input.GetKey(KeyCode.S)){
+		else if(Input.GetKey(KeyCode.S)){
 			pos.z -= Time.deltaTime * walkSpeed;
 		}
 		if(Input.GetKey(KeyCode.A)){
 			pos.x -= Time.deltaTime * walkSpeed;
-			if(transform.right != Vector3.left){
+			if(transform.right != Vector3.left && !flipping){
 				StartCoroutine("QuickFlip", Vector3.left);
 			}
 		}
-		if(Input.GetKey(KeyCode.D)){
+		else if(Input.GetKey(KeyCode.D)){
 			pos.x += Time.deltaTime * walkSpeed;
-			if(transform.right != Vector3.right){
+			if(transform.right != Vector3.right && !flipping){
 				StartCoroutine("QuickFlip", Vector3.right);
 			}
 		}
