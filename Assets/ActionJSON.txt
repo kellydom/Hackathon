@@ -1,0 +1,37 @@
+{
+	"history": {
+		"provocative_palliative":true,
+		"quality":true,
+		"radiation":true,
+		"severity":true,
+		"associated_symptoms":true,
+		"timing":true,
+		"family_history":true,
+		"social_history":true,
+		"past_medical_history":true,
+		"surgical_history":true,
+		"medications":true
+	},
+	"physical": {
+		"cardiac":true,
+		"pulmonary":true,
+		"abdominal":true,
+		"musculoskeletal":true,
+		"neurologic":true,
+		"dermatologic":true
+	},
+	"labs":{
+		"complete_blood_count":false,
+		"sputnum_culture":false,
+		"ecg":false
+	},
+	"imaging":{
+		"x_ray":false,
+		"echocardiogram":false,
+		"ct":false,
+		"mri":false
+	},
+	"treatment":{
+	
+	}
+}

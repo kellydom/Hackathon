@@ -16,8 +16,14 @@ public class GameController : MonoBehaviour {
 	public GameObject tempSpawnPrefab;
 
 	List<Disease> diseases = new List<Disease>();
+	public List<Action> actions = new List<Action>();
+	public List<Treatment> treatments = new List<Treatment>();
 
 	public string path;
+
+	public GameObject blockingPlane;
+
+	public List<Sprite> possibleSprites = new List<Sprite>();
 
 
 	// Use this for initialization
@@ -30,8 +36,93 @@ public class GameController : MonoBehaviour {
 				Destroy(this.gameObject);
 			}
 		}
-		GoToOverworld();
+		blockingPlane.renderer.enabled = false;
+		CreateActionList();
 		CreateDiseases();
+
+		for(int i = 0; i < spawnObject.transform.childCount; ++i){
+			SpawnEnemy(spawnObject.transform.GetChild (i).transform.position);
+		}
+
+		
+		GoToOverworld();
+	}
+
+	void CreateActionList(){
+		string actionList = File.ReadAllText("Assets/ActionJSON.txt");
+		JSONObject actionJSON = new JSONObject(actionList);
+
+		for(int i = 0; i < actionJSON.Count; i++)
+		{
+			if(actionJSON.keys[i] != null)
+			{
+				Action.Type type;
+				JSONObject typeObj;
+				switch((string)actionJSON.keys[i])
+				{
+				case "history":
+					type = Action.Type.HISTORY;
+					typeObj = actionJSON.list[i];
+					for(int typeIterator = 0; typeIterator < typeObj.Count; typeIterator++)
+					{
+						string name = typeObj.keys[typeIterator];
+						bool isUnlocked = typeObj.list[typeIterator].b;
+
+						Action newAction = new Action(type, name, isUnlocked);
+						actions.Add (newAction);
+
+					}
+					break;
+				
+				case "physical":
+					type = Action.Type.PHYSICAL;
+					typeObj = actionJSON.list[i];
+					for(int typeIterator = 0; typeIterator < typeObj.Count; typeIterator++)
+					{
+						string name = typeObj.keys[typeIterator];
+						bool isUnlocked = typeObj.list[typeIterator].b;
+						
+						Action newAction = new Action(type, name, isUnlocked);
+						actions.Add (newAction);
+						
+					}
+					break;
+				
+				case "labs":
+					type = Action.Type.LAB;
+					typeObj = actionJSON.list[i];
+					for(int typeIterator = 0; typeIterator < typeObj.Count; typeIterator++)
+					{
+						string name = typeObj.keys[typeIterator];
+						bool isUnlocked = typeObj.list[typeIterator].b;
+						
+						Action newAction = new Action(type, name, isUnlocked);
+						actions.Add (newAction);
+						
+					}
+					break;
+				
+				case "imaging":
+					type = Action.Type.IMAGING;
+					typeObj = actionJSON.list[i];
+					for(int typeIterator = 0; typeIterator < typeObj.Count; typeIterator++)
+					{
+						string name = typeObj.keys[typeIterator];
+						bool isUnlocked = typeObj.list[typeIterator].b;
+						
+						Action newAction = new Action(type, name, isUnlocked);
+						actions.Add (newAction);
+						
+					}
+					break;
+				
+				case "treatment":
+					name = actionJSON.list[i].str;
+					break;
+				}
+				
+			}
+		}
 	}
 
 	void CreateDiseases(){
@@ -42,7 +133,6 @@ public class GameController : MonoBehaviour {
 			JSONObject emperorJSonOfSpartax = new JSONObject(jsonO);
 
 			Disease newDisease = new Disease(emperorJSonOfSpartax);
-			
 			diseases.Add (newDisease);
 		}
 	}
@@ -101,25 +191,71 @@ public class GameController : MonoBehaviour {
 		Person person = newEn.AddComponent<Person>();
 
 		int ran = Random.Range(0, diseases.Count - 1);
+
+
 		Disease thisDisease = diseases[ran];
 
-		Demographic newDem = MakeDems();
+		Demographic newDem = MakeDems(thisDisease);
 
 		person.AddDem(newDem);
 		person.AddDisease(thisDisease);
 		person.ChoosePersonality();
+
+		ran = Random.Range (0, possibleSprites.Count);
+		Sprite sprite = possibleSprites[ran];
+
+		newEn.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+
 	}
 
-	void Awake(){
-		for(int i = 0; i < spawnObject.transform.childCount; ++i){
-			SpawnEnemy(spawnObject.transform.GetChild (i).transform.position);
+	IEnumerator FadeToBattle(Sprite patientSprite){
+		blockingPlane.renderer.enabled = true;
+
+		float t = 0;
+		while(t < 1){
+			t += Time.deltaTime * Time.timeScale / 1.0f;
+
+			Color c = Color.black;
+			c.a = Mathf.Lerp (0, 1, t);
+
+			blockingPlane.renderer.material.color = c;
+
+			yield return 0;
 		}
-	}
-
-	public void GoToBattle(){
-		inOverworld = false;
 		overWorldCam.enabled = false;
 		battleCam.enabled = true;
+		BattleController.S.BattleStart(patientSprite);
+
+		blockingPlane.transform.position = battleCam.transform.position + battleCam.transform.forward / 2;
+		blockingPlane.transform.parent = battleCam.transform;
+
+		Vector3 localEuler = blockingPlane.transform.rotation.eulerAngles;
+		localEuler.y += 180;
+		blockingPlane.transform.rotation = Quaternion.Euler (localEuler);
+
+		t = 0;
+		while(t < 1){
+			t += Time.deltaTime * Time.timeScale / 1.0f;
+			
+			Color c = Color.black;
+			c.a = Mathf.Lerp (1, 0, t);
+			
+			blockingPlane.renderer.material.color = c;
+			
+			yield return 0;
+		}
+		
+		blockingPlane.transform.position = overWorldCam.transform.position + overWorldCam.transform.forward / 2;
+		blockingPlane.transform.parent = overWorldCam.transform;
+		
+		localEuler = blockingPlane.transform.rotation.eulerAngles;
+		localEuler.y += 180;
+		blockingPlane.transform.rotation = Quaternion.Euler (localEuler);
+	}
+
+	public void GoToBattle(Sprite patientSprite){
+		inOverworld = false;
+		StartCoroutine(FadeToBattle(patientSprite));
 	}
 
 	public void GoToOverworld(){

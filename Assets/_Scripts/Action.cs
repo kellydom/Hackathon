@@ -11,9 +11,9 @@ public class Action : MonoBehaviour {
 		PHYSICAL
 	};
 
-	Type type;
-	string name;
-	bool isUnlocked;
+	public Type type;
+	public string name;
+	public bool isUnlocked;
 
 	public Action(Type t, string n, bool unlocked){
 		type = t;
