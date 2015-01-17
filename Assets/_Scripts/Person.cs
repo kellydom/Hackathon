@@ -18,9 +18,33 @@ public class Person : MonoBehaviour {
 		
 	}
 
+	public void AddDem(Demographic dem){
+		dems = dem;
+	}
+
 	public void AddDisease(Disease d){
 		disease = d;
+	}
+
+	public void ChoosePersonality(){
 		personality = Personality.Default;
+
+		if(dems.sex == Demographic.Sex.Male){
+			if(dems.age == Demographic.Age.Young){
+				
+			}
+			if(dems.age == Demographic.Age.Middle){
+
+			}
+			if(dems.age == Demographic.Age.Old){
+				
+			}
+		}
+		else{
+
+		}
+
+
 	}
 	
 	// Update is called once per frame

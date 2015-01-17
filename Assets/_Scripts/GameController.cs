@@ -47,9 +47,7 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	Person MakePersonScript(){
-		int ran = Random.Range(0, diseases.Count - 1);
-		Disease thisDisease = diseases[ran];
+	Demographic MakeDems(Disease thisDisease){
 
 		Demographic newDem;
 
@@ -92,17 +90,24 @@ public class GameController : MonoBehaviour {
 		}
 
 		newDem = new Demographic(sex, age, race);
-		Person newPerson = new Person();
 
-		return newPerson;
+		return newDem;
 
 	}
 
 	void SpawnEnemy(Vector3 pos){
 		GameObject newEn = Instantiate(tempSpawnPrefab, pos, Quaternion.identity) as GameObject;
 		AI ai = newEn.GetComponent<AI>();
+		Person person = newEn.AddComponent<Person>();
 
-		Person pScript = MakePersonScript();
+		int ran = Random.Range(0, diseases.Count - 1);
+		Disease thisDisease = diseases[ran];
+
+		Demographic newDem = MakeDems();
+
+		person.AddDem(newDem);
+		person.AddDisease(thisDisease);
+		person.ChoosePersonality();
 	}
 
 	void Awake(){

@@ -10,13 +10,13 @@ public class Dialogue : MonoBehaviour {
 	};
 
 	Speaker speaker;
-	string speech;
+	Dictionary<Person.Personality, string> responses = new Dictionary<Person.Personality, string>();
 	List<Action> unlocks = new List<Action>();
 	List<string> keyItems = new List<string>();
 
-	public Dialogue(Speaker speak, string toSay, List<Action> ul, List<string>important){
+	public Dialogue(Speaker speak, Dictionary<Person.Personality, string> possibleResponses, List<Action> ul, List<string>important){
 		speaker = speak;
-		speech = toSay;
+		responses = possibleResponses;
 		unlocks = ul;
 		keyItems = important;
 	}

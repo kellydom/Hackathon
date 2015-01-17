@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Action : MonoBehaviour {
 
@@ -13,13 +14,11 @@ public class Action : MonoBehaviour {
 	Type type;
 	string name;
 	bool isUnlocked;
-	Dialogue dialog;
 
-	public Action(Type t, string n, bool unlocked, Dialogue d){
+	public Action(Type t, string n, bool unlocked){
 		type = t;
 		name = n;
 		isUnlocked = unlocked;
-		dialog = d;
 	}
 
 	// Use this for initialization
