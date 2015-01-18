@@ -14,11 +14,13 @@ public class Action : MonoBehaviour {
 	public Type type;
 	public string name;
 	public bool isUnlocked;
+	public Dialogue question;
 
-	public Action(Type t, string n, bool unlocked){
+	public Action(Type t, string n, bool unlocked, Dialogue q){
 		type = t;
 		name = n;
 		isUnlocked = unlocked;
+		question = q;
 	}
 
 	// Use this for initialization

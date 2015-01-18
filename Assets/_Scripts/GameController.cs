@@ -64,13 +64,28 @@ public class GameController : MonoBehaviour {
 					type = Action.Type.HISTORY;
 					typeObj = actionJSON.list[i];
 					for(int typeIterator = 0; typeIterator < typeObj.Count; typeIterator++)
-					{
+					{	
+						JSONObject questionObj = typeObj.list[i];
 						string name = typeObj.keys[typeIterator];
-						bool isUnlocked = typeObj.list[typeIterator].b;
-
-						Action newAction = new Action(type, name, isUnlocked);
+						bool isUnlocked = false;
+						Dialogue question = null;
+						Dictionary<Person.Personality, string> docsPersonality = new Dictionary<Person.Personality, string>();
+						for(int questionIterator = 0; questionIterator < questionObj.Count; questionIterator++)
+						{
+							switch((string)questionObj.keys[questionIterator])
+							{
+							case "speech":
+								string query = questionObj.list[questionIterator].str;
+								docsPersonality.Add(Person.Personality.Default, query);
+								question = new Dialogue(Dialogue.Speaker.Doctor, docsPersonality, null, null);
+								break;
+							case "visibility":
+								isUnlocked = questionObj.list[questionIterator].b;
+								break;
+							}
+						}
+						Action newAction = new Action(type, name, isUnlocked, question);
 						actions.Add (newAction);
-
 					}
 					break;
 				
@@ -82,7 +97,7 @@ public class GameController : MonoBehaviour {
 						string name = typeObj.keys[typeIterator];
 						bool isUnlocked = typeObj.list[typeIterator].b;
 						
-						Action newAction = new Action(type, name, isUnlocked);
+						Action newAction = new Action(type, name, isUnlocked, null);
 						actions.Add (newAction);
 						
 					}
@@ -96,7 +111,7 @@ public class GameController : MonoBehaviour {
 						string name = typeObj.keys[typeIterator];
 						bool isUnlocked = typeObj.list[typeIterator].b;
 						
-						Action newAction = new Action(type, name, isUnlocked);
+						Action newAction = new Action(type, name, isUnlocked, null);
 						actions.Add (newAction);
 						
 					}
@@ -110,7 +125,7 @@ public class GameController : MonoBehaviour {
 						string name = typeObj.keys[typeIterator];
 						bool isUnlocked = typeObj.list[typeIterator].b;
 						
-						Action newAction = new Action(type, name, isUnlocked);
+						Action newAction = new Action(type, name, isUnlocked, null);
 						actions.Add (newAction);
 						
 					}

@@ -109,6 +109,13 @@ public class BattleController : MonoBehaviour {
 		return endString.ToUpper ();
 	}
 
+	IEnumerator WaitForDialogue(Dialogue.Speaker speaker, string phrase) {
+		while (!BattleDialogue.S.readyForMore) {
+			yield return 0;
+		}
+		BattleDialogue.S.SaySomething (speaker, phrase);
+	}
+
 	public void PerformAction(string actionName){
 		print (actionName);
 		Disease ailment = enemy.disease;
@@ -123,9 +130,13 @@ public class BattleController : MonoBehaviour {
 		}
 		string phrase;
 		if (currentAction.type == Action.Type.HISTORY) {
+			Dialogue question = currentAction.question;
+			BattleDialogue.S.SaySomething(Dialogue.Speaker.Doctor, question.responses[Person.Personality.Default]);
 			phrase = response.responses[enemy.personality];
+			StartCoroutine(WaitForDialogue(response.speaker, phrase));
 		} else {
 			phrase = response.responses[Person.Personality.Default];
+			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		}
 		print (phrase);
 	}
