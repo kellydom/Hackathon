@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void CreateActionList(){
-		string actionList = File.ReadAllText("ActionJSON.txt");
+		string actionList = File.ReadAllText("ActionLists.txt");
 		JSONObject actionJSON = new JSONObject(actionList);
 
 		for(int i = 0; i < actionJSON.Count; i++)
@@ -147,8 +147,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	void CreateDiseases(){
-		var info = new DirectoryInfo("JSONFiles");
-		var fileInfo = info.GetFiles("*.txt");
+		var info = new DirectoryInfo(".");
+		var fileInfo = info.GetFiles("*_JSON.txt");
 		foreach(var file in fileInfo){
 			string jsonO = File.ReadAllText(file.ToString());
 			JSONObject emperorJSonOfSpartax = new JSONObject(jsonO);
