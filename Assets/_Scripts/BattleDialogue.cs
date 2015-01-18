@@ -20,6 +20,13 @@ public class BattleDialogue : MonoBehaviour {
 	bool textFinished;
 	public bool readyForMore;
 
+	public Button log;
+
+	List<string> speechLog = new List<string>();
+
+	public Image actualLog;
+	bool showLog = false;
+
 	// Use this for initialization
 	void Start () {
 		if(S == null){
@@ -30,12 +37,21 @@ public class BattleDialogue : MonoBehaviour {
 				Destroy(this.gameObject);
 			}
 		}
+		
+		Vector2 ap = log.GetComponent<RectTransform>().anchoredPosition;
+		ap.y = 100;
+		log.GetComponent<RectTransform>().anchoredPosition = ap;
+
 		image.enabled = false;
 		text.enabled = false;
 		textOnScreen = false;
 		finishText = false;
 		textFinished = false;
 		readyForMore = true;
+
+		ap = actualLog.GetComponent<RectTransform>().anchoredPosition;
+		ap.x = -1000;
+		actualLog.GetComponent<RectTransform>().anchoredPosition = ap;
 	}
 
 	IEnumerator TickerTape(string speech){
@@ -91,9 +107,48 @@ public class BattleDialogue : MonoBehaviour {
 		bubbleOnScreen.transform.rotation = Quaternion.Euler (eulerAngle);
 
 		string totalSpeech = speak + speech;
+		speechLog.Add (totalSpeech);
+
+		actualLog.GetComponentInChildren<Text>().text += totalSpeech + "\n\n";
 
 		StartCoroutine(TickerTape(totalSpeech));
 
+	}
+
+	public void RemoveLog(){
+		showLog = false;
+		Vector2 ap = actualLog.GetComponent<RectTransform>().anchoredPosition;
+		ap.x = -1000;
+		actualLog.GetComponent<RectTransform>().anchoredPosition = ap;
+	}
+
+	public void ToggleLog(){
+		showLog = !showLog;
+		Vector2 ap;
+		if(showLog){
+			ap = actualLog.GetComponent<RectTransform>().anchoredPosition;
+			ap.x = 200;
+			actualLog.GetComponent<RectTransform>().anchoredPosition = ap;
+		}
+		else{
+			ap = actualLog.GetComponent<RectTransform>().anchoredPosition;
+			ap.x = -1000;
+			actualLog.GetComponent<RectTransform>().anchoredPosition = ap;
+		}
+	}
+
+	public void MoveLogDown(){
+		
+		Vector2 ap = log.GetComponent<RectTransform>().anchoredPosition;
+		ap.y = -20;
+		log.GetComponent<RectTransform>().anchoredPosition = ap;
+	}
+
+	public void MoveLogUp(){
+		
+		Vector2 ap = log.GetComponent<RectTransform>().anchoredPosition;
+		ap.y = 100;
+		log.GetComponent<RectTransform>().anchoredPosition = ap;
 	}
 	
 	// Update is called once per frame

@@ -227,7 +227,7 @@ public class BattleController : MonoBehaviour {
 				Vector3 pos = doctor.transform.position + Vector3.down;
 				Vector3 startPos = pos;
 				
-				float angle = (float)i/(buttonList.Count - 1) * -90.0f + 45;
+				float angle = (float)i/(buttonList.Count - 1) * -120.0f + 60;
 				
 				pos.x -= (Mathf.Cos (angle * Mathf.Deg2Rad) * 2);
 				pos.y += (Mathf.Sin (angle * Mathf.Deg2Rad) * 2);
@@ -339,7 +339,8 @@ public class BattleController : MonoBehaviour {
 			
 			yield return 0;
 		}
-
+		
+		BattleDialogue.S.MoveLogDown();
 		StartCoroutine(TopLevelButtonsOut());
 
 	}
@@ -359,6 +360,7 @@ public class BattleController : MonoBehaviour {
 		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
 		backButton.enabled = false;
 
+
 		StartCoroutine(StartCo());
 	}
 
@@ -373,7 +375,9 @@ public class BattleController : MonoBehaviour {
 		ap.x = -100;
 		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
 		backButton.enabled = false;
-
+		
+		BattleDialogue.S.MoveLogUp();
+		BattleDialogue.S.RemoveLog();
 
 		
 		foreach(Button button in topLevelButtons){
