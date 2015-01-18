@@ -1,0 +1,229 @@
+{
+    "name": "Gastroesophageal Reflux Disease",
+    "chief_complaint": {
+	"default": "My chest really hurts!",
+	"jock": "Dude, my chest is killing me!",
+	"sweet": "Oh... my chest!",
+	"dad": "Gee, my chest hurts!",
+	"princess": "Ow! Ow! Ow! My chest!",
+	"dandy": "My old Civil War chest wound is acting up!",
+	"police": "Chest hurts, you betcha!",
+	"sports": "Ow! My chest kills!"
+    },
+    "demographics": {
+	"sex": { "male": 0.7, "female": 0.3 },
+	"age": { "young": 0.1, "middle": 0.4, "old": 0.5 },
+	"race": { "black": 0.5, "white": 0.3, "asian": 0.2 }
+    },
+    "history": {
+	"provocative_palliative":
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It's usually *worse after I eat*. I also notice it when I'm *lying down*.",
+			"jock": "Dude, it *flares up like crazy after I pound down a meal*. It's also pretty bad when I *lay down*... to bench press, of course.",
+			"sweet": "I usually notice it *after I eat* my brussell sprouts. It happens when I *lay down*, too.",
+			"dad": "I don't know if Jeanette's using a new spice or what, but I really feel it *after I eat*. It also flares up when I *lay down*.",
+			"princess": "It usually happens after I eat. But my mom says I still have to eat my broccoli!",
+			"dandy": "Usually after my *evenin' feedin'* it starts acting up. When I *lie down* for my nap, it can also bother me.",
+			"police": "After I eat with the crew. If I take a quick nap - you got to sometimes in a job like this - it will flare up too.",
+			"sports": "It happens after I eat. And sometimes when I lay down, but I never lay down. That's no fun!"
+		}
+	    }
+	,
+	"quality": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It's a *burning* sensation.",
+			"jock": "Dude, it's like my chest is *on fire*.",
+			"sweet": "It feels like my chest is *burning* like an oven.",
+			"dad": "It's like a chili pepper *burning* in my chest.",
+			"princess": "It's like my chest is on fire! This is no way for a princess to live!",
+			"dandy": "My chest is *burnin'* hotter than the fire of Hell!",
+			"police": "It's like a fire, ya know, or like frostbite from the Minnesota winter.",
+			"sports": "It's like my chest is on fire! Just like the skate park after I've been shredding for a few hours."
+		}
+	    }
+	,
+	"radiation": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It tends to rise up to my *neck*.",
+			"jock": "Dude, I can, like, feel it rising all the way up into my *neck*.",
+			"sweet": "Sometimes it rises all the way up to my *neck*.",
+			"dad": "The chili pepper sometimes grows up through my neck, if you catch what I'm saying.",
+			"princess": "It goes up into my *neck*!",
+			"dandy": "Sometimes it rises all the way up to my *neck*.",
+			"police": "It comes up through my *neck*.",
+			"sports": "Sometimes it feels like the fire is crawling up my neck. Am I going to be able to breathe fire soon?!"
+		}
+	    }
+	,
+	"severity": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It can get up to a *5* or *6*.",
+			"jock": "Dude, I don't know. Maybe a *5* or *6*.",
+			"sweet": "Usually a *5* or *6*.",
+			"dad": "Gosh, probably a *5* or *6*.",
+			"princess": "Probably a 5 or 6. Make it stop!",
+			"dandy": "I've felt worse. Probably a *5* or *6*.",
+			"police": "Not bad, not bad. Maybe a *5*, or *6*.",
+			"sports": "It's pretty bad, maybe a 5 or 6, but I'm still good to play once it lets up."
+		}
+	    }
+	,
+
+	"associated_symptoms": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I often *cough* and get *short of breath* at *night*.",
+			"jock": "Dude, I get these crazy *coughs* at *night* and I have a *hard time breathing*.",
+			"sweet": "Sometimes I get a *horrible cough* at *night* and have *difficulty breathing*. How am I supposed to make my bedtime at 6:00 if I keep coughing?",
+			"dad": "My wife says I'm real restless in bed and keep *coughing* and I find it *hard to breathe*.",
+			"princess": "Sometimes I start *coughing* at *night* and *can't breathe*! I can't dream about unicorns if I can't fall asleep!",
+			"dandy": "I'm all tucked into my feather bed when I start *coughing* and have trouble breathing.",
+			"police": "So I'm talking with the hubby about his bird paintings in bed, and I start coughing. Hard to breathe, you bet.",
+			"sports": "I sometimes cough and have a hard time breathing at night. I've gotta get my rest if I wanna play the next day!"
+		}
+	    }
+	,
+	"timing": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I get episodes *almost every day*. They usually last for about a *half hour*, but sometimes it's longer.",
+			"jock": "Dude, it happens *almost every day* now. It lasts for like a *half hour*, and it's seriously messing up my workout routine.",
+			"sweet": "Lately it's been happening *every day*. It usually only lasts for a *half hour*, but it can be longer.",
+			"dad": "It comes *every day*, for a *half hour* or so.",
+			"princess": "It happens every day now! For 30 whole minutes!",
+			"dandy": "Isn't a day when it doesn't flare up. Lasts 'bout a half hour.",
+			"police": "Oh, every day, every day. 'Bout a half hour when it does.",
+			"sports": "It happens almost every day now. It's so lame! It goes away after about a half hour, but still! So lame!"
+		}
+	    }
+	,
+	"family_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Nothing that I know of.",
+			"jock": "Dude, I can't think of anything.",
+			"sweet": "I can't remember any family health issues. We're a hardy bunch.",
+			"dad": "Not unless good looks are a disease!",
+			"princess": "Nobody I know has ever had this!",
+			"dandy": "I've seen a lot of family come and go, and nothing like this.",
+			"police": "Doubt it; you hear 'bout that stuff in our town.",
+			"sports": "This hasn't happened to anyone else in my family!"
+		}
+	    }
+	,
+	"social_history": 
+            {
+                "person": "patient",
+		"speech": {
+			"default": "I don't smoke or drink.",
+			"jock": "Dude, I don't smoke or drink. I don't want to mess up my physique.",
+			"sweet": "Oh, dear. No, I don't smoke or drink.",
+			"dad": "Never picked up a cigarette or beer in my life. Even in college, believe it or not!",
+			"princess": "What?! I'm just a kid!",
+			"dandy": "How d'you think I lasted this long - stayed away from accursed smokes and drink!",
+			"police": "No smoking or drink for me.",
+			"sports": "My mom told me I'm too cool to smoke cigarettes or drink 'Daddy's drinks'."
+		}
+	    }
+	,
+	"past_medical_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Nothing I can think of; I've been pretty healthy.",
+			"jock": "Dude, I've been in prime health for as long as I can remember.",
+			"sweet": "I can't think of anything. I was a healthy young whipper-snapper!",
+			"dad": "I'm squeaky-clean as the day I was born, at least medically.",
+			"princess": "I never get sick!",
+			"dandy": "Only thing I can think of is the piece of lead shot still in me from the war. Never gives me a problem, though.",
+			"police": "Clean bill of health, you betcha.",
+			"sports": "Nope! I've always been a healthy kid!"
+		}
+	    }
+	,
+	"surgical_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I've never had surgery.",
+			"jock": "Dude, I've never had any surgeries.",
+			"sweet": "No, I've never had surgery. I even still have my tonsils!",
+			"dad": "All my kids have had their appendixes removed, but no surgery for me yet!",
+			"princess": "Is that where they cut you open? Gross! I've never had that, and I don't ever want to!",
+			"dandy": "No dirty doctor's had his hands inside me!",
+			"police": "Never been in the hospital since the day I was born.",
+			"sports": "My friend had to have surgery and it was SO COOL. Not me, though."
+		}
+	    }
+	,
+	"medications": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I'm not taking any medication.",
+			"jock": "Dude, I don't take anything. Seriously dude, not even steroids. Impressed?",
+			"sweet": "I'm not currently taking any medication. Why do you look so surprised?",
+			"dad": "Nosirree!",
+			"princess": "Yuk! No way!",
+			"dandy": "I get 3 pill holders each Christmas, and haven't got anything to use them for yet!",
+			"police": "We don't do drugs down at the department.",
+			"sports": "Do Flintstones vitamins count?"
+		}
+	    }
+	
+    },
+    "physical": {
+	"cardiac": "Everything seems normal.",
+	"pulmonary": "Sounds like there are some crackles and wheezes on both sides.",
+	"abdominal": "Everything seems normal.",
+	"musculoskeletal": "Everything seems normal.",
+	"neurologic": "Everything seems normal.",
+	"dermatologic": "Everything seems normal."
+    },
+    "labs": {
+	"complete_blood_count": "Everything seems normal.",
+	"sputum_culture": "Doesn't look like anything grew.",
+	"ecg": "Everything seems normal.",
+        "other_blood_tests": "Everything seems normal."
+    },
+    "imaging": {
+	"x_ray": "Everything seems normal.",
+	"echocardiogram": "Everything seems normal.",
+	"ct": "Everything seems normal.",
+	"mri": "Everything seems normal."
+    },
+    "treatment": [
+	"Proton Pump Inhibitors"
+    ],
+    "treatment_response_success": {
+	"default": "That feels much better!",
+	"jock": "Dude, I feel great! This calls for some celebratory push-ups!",
+	"sweet": "Oh, my! I feel so much better! Thanks so much, deary!",
+	"dad": "By golly, that did the trick!",
+	"princess": "I feel so pretty again!",
+	"dandy": "Hallelujah! Thanks for usin' your mystical powers and all!",
+	"police": "I'm right ready new, you betcha!",
+	"sports": "Wow! I feel great! Time to get out and play!"
+    },
+    "treatment_response_failure": {
+	"default": "I don't think that helped...",
+	"jock": "Dude, I'm pretty sure that didn't work...",
+	"sweet": "Oh, dear... I'm not sure that did any good...",
+	"dad": "Gee, I don't feel any different...",
+	"princess": "That didn't do anything!",
+	"dandy": "Still feel like hell...",
+	"police": "Ya know, I don't know that did much...",
+	"sports": "I still feel sick! Hurry up!"
+    }
+}

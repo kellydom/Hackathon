@@ -1,105 +1,112 @@
 {
-    "name": "Pneumonia",
+    "name": "Asthma",
     "chief_complaint": {
 	"default": "Ugh... I'm having a really hard time breathing.",
 	"jock": "Dude, I really can't breathe.",
 	"sweet": "Oh, dear. Breathing sure has been difficult lately...",
 	"dad": "Gee whiz, I can't breathe like I used to!",
 	"princess": "Help me! I can't breathe!",
-	"dandy": "",
-	"police": "",
-	"sports": ""
+	"dandy": "My breathing ain't what it used to be!",
+	"police": "Can't breathe, ya!",
+	"sports": "I can't breath! This stinks!"
     },
     "demographics": {
-	"sex": { "male": 0.5, "female": 0.5 },
-	"age": { "young": 0.3, "middle": 0.3, "old": 0.6 },
-	"race": { "black": 0.25, "white": 0.25, "asian": 0.25, "hispanic": 0.25 }
+	"sex": { "male": 0.7, "female": 0.3 },
+	"age": { "young": 0.7, "middle": 0.2, "old": 0.1 },
+	"race": { "black": 0.3, "white": 0.3, "asian": 0.4 }
     },
     "history": {
 	"provocative_palliative": 
 	    {
 		"person": "patient",
 		"speech": {
-			"default": "No, it's pretty much always the same.",
-			"jock": "Dude, nothing helps.",
-			"sweet": "I'm afraid nothing seems to make a difference.",
-			"dad": "Can't do anything about it!",
-			"princess": "No, it's always bad!.",
-			"dandy": "Nuthin' - not even that old bottle of arsenic tonic I keep for emergencies.",
-			"police": "Can't do anything, ya know?",
-			"sports": "Nothing helps!"
+			"default": "I definitely notice it a lot more in the spring. It can happen when I'm stressed, too.",
+			"jock": "Dude, it happens more often when I meditate in the forest in the spring. What? Meditation is a crucial part of keeping your bod in prime shape.",
+			"sweet": "Well, it seems a bit worse when I'm out in the garden in the springtime.",
+			"dad": "Well, I'm not sure, but it sure seems like it's worse when I go outside in the springtime. What a shame! Everything looks so pretty that time of year.",
+			"princess": "It happens when I go outside to sniff all the pretty flowers!",
+			"dandy": "Well, seems to be worse when I go outside to feed the pidgeons in the spring.",
+			"police": "There was this real hard case, ya, and the stress made it bad. Last spring it was real bad.",
+			"sports": "It usually happens when I go outside in the spring, which is basically all the time!"
 		}
-	    },
+	    }
+	,
 	"quality": 
 	    {
 		"person": "patient",
 		"speech": {
-			"default": "I don't know, I just get exhausted much easier.",
-			"jock": "Dude, I don't even know. I just can't breathe like I used to. And you can't lift if you can't breathe.",
-			"sweet": "I just can't get around like I used to. I had to miss out on my power walk yesterday!",
-			"dad": "Golly, I'm not sure. I just get exhausted mighty easily. Didn't used to be like that.",
-			"princess": "I don't know, I just can't breathe like I used to!",
-			"dandy": "Can't really put a finger on it. I just know my breathin' ain't right!",
-			"police": "I dunno - just like I don't feel well.",
-			"sports": "I just can't breathe right! How am I supposed to play in this condition?"
+			"default": "I get flare-ups where my chest feels super tight and I can hardly get any air in. It's pretty scary.",
+			"jock": "Dude, I don't even know. I just get these episodes where my lungs are like, 'Nah, bro.' It's just like that.",
+			"sweet": "Out of nowhere, my chest just suddenly clenches up, and I just can't fill my lungs anymore! Be a dear and help an old lady out, will you?",
+			"dad": "I'm usually fine, but when it starts up, I just can't get any air in! Gee willikers, it's scary!",
+			"princess": "I don't know, it's just like I suddenly can't get any air in!",
+			"dandy": "When it gets riled up, it's like my lungs just don't want to work anymore. They've gotten me this far; I don't want them to quit on me now!",
+			"police": "Can't get the air in, ya know?",
+			"sports": "When it starts, it's like my lungs just don't want to play anymore!"
 		}
-	    },
+	    }
+	,
 	"radiation": 
 	    {
 		"person": "patient",
 		"speech": {
 			"default": "No, not that I can tell.",
 			"jock": "Dude, I don't think so.",
-			"sweet": "Oh, I don't think so.",
+			"sweet": "Dude, I don't think so.",
 			"dad": "Hmmm... don't think so.",
 			"princess": "No! Just make it stop!",
 			"dandy": "Nah, it don't affect anywhere else.",
 			"police": "You bet it doesn't!",
 			"sports": "Nope, just my breathing!"
 		}
-	    },
-	"severity": 
+	    }
+	,
+	"severity":
 	    {
 		"person": "patient",
 		"speech": {
-			"default": "Maybe a 3 or 4.",
-			"jock": "Dude, I don't know. Maybe a 3 or 4. It may not sound like much, but it's making it really hard to do push-ups.",
-			"sweet": "It's probably a 6 or 7, which is pretty bad, especially for someone my age! ",
-			"dad": "Gosh, probably a *3* or *4*.",
-			"princess": "I don't know! 3 or 4?",
-			"dandy": "I've felt worse. Probably a *3* or *4*.",
-			"police": "Enough to knock me down, you bet, but maybe just a *3* or *4*.",
-			"sports": "Maybe a 3 or 4, but it's still bad enough to keep me from playing!"
+			"default": "Normally, it's a 1, but when I have a flare-up, it can get to a 7 or 8.",
+			"jock": "Dude, it can get to a 7 or 8 during a bad one. Even I'm not strong enough to live with that forever. Well, probably not. If anyone could, it would be me.",
+			"sweet": "Well, normally I'm quite all right, but when it gets bad, it feels like a 7 or 8. That's pretty scary for a tender person like myself! ",
+			"dad": "Gosh, probably a *7* or *8* when it flares up.",
+			"princess": "Normally I'm fine, but when it happens, it's really bad! Like a 7 or 8!",
+			"dandy": "I'm normally just fine to stroll around town, but once the symptoms kick in, it sure does a number on me. It's probably at least a 7 or 8!",
+			"police": "Ya know, most of the time it's OK, but when it comes on, it's a 7 or 8!",
+			"sports": "I usually feel awesome, but when it gets going, it's like a 7 or 8! I'm too young to die!"
+		}
 	    }
-	},
+	,
+
 	"associated_symptoms": 
 	    {
 		"person": "patient",
 		"speech": {
-			"default": "I've also got some chest pain. Oh, and I've been coughing up this red-brownish stuff.",
-			"jock": "Dude, my chest kinda hurts to. I've been coughing up this rust-colored stuff, too. I know the color of rust since I go outside and lift weights every time it rains.",
-			"sweet": "Well, now that you mention it, my chest hurts a fair bit, too. I've also started coughing up some vile rust-colored fluid.",
-			"dad": "My chest is also taking a pounding, and I started coughing up this nasty looking reddish-brown stuff. Am I contagious? I don't want to get my kids sick.",
-			"princess": "My chest hurts, too! And now I'm coughing up this yucky reddish-brownish gunk! It's disgusting!",
-			"dandy": "Ya know, my chest sure has been givin' me a hard time, too. And now I'm coughin' up some reddish-brown who-knows-what. Nasty business, lemme tell ya.",
-			"police": "My chest hearts, like I said, and coughing up something nasty, red, ya know.",
-			"sports": "My chest kills, too! And sometimes I cough up this nasty reddish-brown gunk. I tried to put it in my little sister's hair the other day, but she ran away."
+			"default": "I also cough pretty bad, and my chest is really tight.",
+			"jock": "Dude, my chest gets tighter than my abs, in a bad way. I cough up a storm, too.",
+			"sweet": "Well, now that you mention it, my chest hurts a fair bit, too. A wicked cough comes with it sometimes, too.",
+			"dad": "My chest is also taking a pounding, and I've been coughing a lot, too. Nothing usually comes out, though. Is that a good thing?",
+			"princess": "My chest hurts and I cough, too! It's so un-ladylike!",
+			"dandy": "Ya know, my chest sure has been givin' me a hard time, too. And I usually cough a fair bit. I just keep hackin' away!",
+			"police": "I keep couging and my chest hurts.",
+			"sports": "My chest kills, too! And I keep coughing. Am I turning into an old fart?!"
 		}
-	    },
+	    }
+	,
 	"timing": 
 	    {
 		"person": "patient",
 		"speech": {
-			"default": "It just kinda hit me over the last day or two.",
-			"jock": "Dude, it's weird. Just the other day I was killin' it at the gym like I always do, and now look at me.",
-			"sweet": "I was quite well just the other day, but now I can hardly walk a full block without getting winded!",
-			"dad": "Golly, just the other day I felt fine. But look at me now! It's definitely got me a bit worried.",
-			"princess": "I was fine just the other day, and now look at me! I'm a disaster!",
-			"dandy": "I was feeling just dandy the other day, but now I've got the stamina of someone 50 years older.",
-			"police": "Felt way worse today than yesterday.",
-			"sports": "I was skateboarding like a pro just the other day, and now I can barely walk down the street without resting! How will I make it to the X Games in this condition?"
+			"default": "I'm generally fine, but a flare-up can happen all of a sudden and last for several minutes.",
+			"jock": "Dude, it just comes out of nowhere. Normally I'm just my beefy self, but when it starts acting up, I can be out of commission for a few minutes.",
+			"sweet": "I'm generally quite well, but when it strikes, it comes right out of the blue! It's not good to sneak up on an old woman!",
+			"dad": "I usually feel just swell, but gee willikers, when it starts up, I have a really hard time breathing for a good several minutes!",
+			"princess": "I'm normally fine, but then it just happens out of nowhere! It usually only lasts for a few minutes, but still! ",
+			"dandy": "Usually I'm just dandy, but the breathin' trouble just comes out of nowhere and puts me out of commission for quite awhile. Reminds me of my war days.",
+			"police": "Ya never know, ya know? Can't predict it.",
+			"sports": "I usually have no problem skating around, but sometimes it just comes out of nowhere, and it knocks me right out!"
 		}
-	    },
+	    }
+	,
 	"family_history": 
 	    {
 		"person": "patient",
@@ -176,27 +183,27 @@
 	    }
     },
     "physical": {
-	"cardiac": "Everything seems normal.",
-	"pulmonary": "Sounds like there are some crackles and wheezes on both sides. There's also a bit of dullness to percussion.",
+	"cardiac": "The heart rate is a little increased.",
+	"pulmonary": "There are some really loud expiratory wheezes. The respiratory rate is also increased and there's some accessory muscle use.",
 	"abdominal": "Everything seems normal.",
 	"musculoskeletal": "Everything seems normal.",
 	"neurologic": "Everything seems normal.",
 	"dermatologic": "Everything seems normal."
     },
     "labs": {
-	"complete_blood_count": "The white blood cell count is a little high. There also appears to be a left shift.",
-	"sputum_culture": "We got something! Looks like lancet-shaped, gram-positive diplococci",
+	"complete_blood_count": "Everything seems normal.",
+	"sputum_culture": "Doesn't look like anything grew.",
 	"ecg": "Everything seems normal.",
-    "other_blood_tests": "Everything seems normal."
+        "other_blood_tests": "Everything seems normal."
     },
     "imaging": {
-	"x_ray": "There's some consolidation in the right lower lobe.",
+	"x_ray": "Everything seems lower.",
 	"echocardiogram": "Everything seems normal.",
 	"ct": "Everything seems normal.",
 	"mri": "Everything seems normal."
     },
     "treatment": [
-	"Antibiotics"
+	"Steroids"
     ],
     "treatment_response_success": {
 	"default": "That feels much better!",

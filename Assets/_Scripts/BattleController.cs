@@ -661,6 +661,9 @@ public class BattleController : MonoBehaviour {
 		healthSlider.GetComponent<RectTransform>().anchoredPosition = ap;
 		healthSlider.value = healthSlider.maxValue;
 
+		string phrase = enemy.disease.complaint [enemy.personality];
+		BattleDialogue.S.SaySomething (Dialogue.Speaker.Patient, phrase);
+
 		
 		ap = backButton.GetComponent<RectTransform>().anchoredPosition;
 		ap.x = -100;

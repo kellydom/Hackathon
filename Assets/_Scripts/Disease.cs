@@ -8,7 +8,7 @@ public class Disease : MonoBehaviour
 
 	public string name;
 
-	public string complaint;
+	public Dictionary<Person.Personality, string> complaint = new Dictionary<Person.Personality, string>();
 
 	
 	public Dictionary<string, float> sexProbs = new Dictionary<string, float>();
@@ -33,7 +33,39 @@ public class Disease : MonoBehaviour
 					name = obj.list[i].str;
 					break;
 				case "chief_complaint":
-					complaint = obj.list[i].str;
+					JSONObject complaintObj = obj.list[i];
+					for(int complaintIterator = 0; complaintIterator < complaintObj.keys.Count; complaintIterator++)
+					{
+						Person.Personality speechKey = Person.Personality.Default;
+						switch((string)complaintObj.keys[complaintIterator])
+						{
+						case "jock":
+							speechKey = Person.Personality.Jock;
+							break;
+						case "sweet":
+							speechKey = Person.Personality.Sweet;
+							break;
+						case "dandy":
+							speechKey = Person.Personality.Dandy;
+							break;
+						case "dad":
+							speechKey = Person.Personality.Dad;
+							break;
+						case "police":
+							speechKey = Person.Personality.Polics;
+							break;
+						case "princess":
+							speechKey = Person.Personality.Princess;
+							break;
+						case "sports":
+							speechKey = Person.Personality.Sports;
+							break;
+						case "default":
+							speechKey = Person.Personality.Default;
+							break;
+						}
+						complaint.Add(speechKey, complaintObj.list[complaintIterator].str);
+					}
 					break;		
 				case "demographics":
 					JSONObject demObj = obj.list[i];
