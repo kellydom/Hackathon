@@ -56,7 +56,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1e336d5e61b697c42b64db4c89d107a3, type: 3}
   - {fileID: 21300000, guid: 348f4baa7aa277a47a3ed2e70a2d1821, type: 3}
   - {fileID: 21300000, guid: bec90dbbb3160d845a90ad456d841f93, type: 3}
+  - {fileID: 21300000, guid: 714753a5fbbea7f48ab689e288e446ba, type: 3}
+  - {fileID: 21300000, guid: ebc0ccb0fb917c344b8dbb68f17a68dc, type: 3}
+  - {fileID: 21300000, guid: 27c40a357d4699547b4fe3bdb742988f, type: 3}
+  - {fileID: 21300000, guid: fccd8beb39182c54f9640858047e7895, type: 3}
+  - {fileID: 21300000, guid: 98c679b982e17204d82f18e3703c9f22, type: 3}
   - {fileID: 21300000, guid: c877174ca49b48e41bc2679f688d95f3, type: 3}
+  - {fileID: 21300000, guid: 3cf1dab828084694498a95335cbaee6d, type: 3}
+  - {fileID: 21300000, guid: 92a16aa2b75da8d48826284ea419c520, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,7 +95,7 @@ MonoBehaviour:
   treatButton: {fileID: 0}
   diagnoseImage: {fileID: 0}
   diagnosePanel: {fileID: 0}
-  diagnoseButtons: {fileID: 0}
+  diagnoseButtons: {fileID: 11400004, guid: 6bf4b315bd243bc4591d577350c07840, type: 2}
   treatmentImage: {fileID: 0}
   treatPanel: {fileID: 0}
 --- !u!114 &11400004
