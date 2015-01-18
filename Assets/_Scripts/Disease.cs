@@ -126,23 +126,9 @@ public class Disease : MonoBehaviour
 									personalityDictionary.Add (speechKey, speechObj.list[speechIterator].str);
 								}
 								break;
-							case "unlocks":
-								JSONObject unlockObj = actionObj.list[actionIterator];
-								for(int unlockIterator = 0; unlockIterator < unlockObj.list.Count; unlockIterator++)
-								{
-									unlockList.Add(unlockObj[unlockIterator].str);
-								}
-								break;
-							case "important":
-								JSONObject importantObj = actionObj.list[actionIterator];
-								for(int importantIterator = 0; importantIterator < importantObj.list.Count; importantIterator++)
-								{
-									importantList.Add(importantObj[importantIterator].str);
-								}
-								break;
 							}
 						}
-						Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Patient, personalityDictionary, unlockList, importantList);
+						Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Patient, personalityDictionary, null, null);
 						responseDictionary.Add(actionName, responseDialogue);
 					}
 					break;
@@ -151,35 +137,12 @@ public class Disease : MonoBehaviour
 					for(int physicalIterator = 0; physicalIterator < physicalObj.keys.Count; physicalIterator++)
 					{
 						string actionName = (string)physicalObj.keys[physicalIterator];
-						JSONObject actionObj = physicalObj.list[physicalIterator];
 						Dictionary<Person.Personality, string> personalityDictionary = new Dictionary<Person.Personality, string>();
 						List<string> unlockList = new List<string>();
 						List<string> importantList = new List<string>();
-						for(int actionIterator = 0; actionIterator < actionObj.keys.Count; actionIterator++)
-						{
-							switch((string)actionObj.keys[actionIterator])
-							{
-							case "speech":
-								personalityDictionary.Add(Person.Personality.Default, actionObj.list[actionIterator].str);
-								break;
-							case "unlocks":
-		                        JSONObject unlockObj = actionObj.list[actionIterator];
-		                        for(int unlockIterator = 0; unlockIterator < unlockObj.list.Count; unlockIterator++)
-		                        {
-									unlockList.Add(unlockObj[unlockIterator].str);
-								}                    
-								break;
-							case "important":
-								JSONObject importantObj = actionObj.list[actionIterator];
-								for(int importantIterator = 0; importantIterator < importantObj.list.Count; importantIterator++)
-								{
-									importantList.Add(importantObj[importantIterator].str);
-								}
-								break;
-							}
-								Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Assistant, personalityDictionary, unlockList, importantList);
-								responseDictionary.Add(actionName, responseDialogue);
-						}							                             
+						personalityDictionary.Add(Person.Personality.Default, physicalObj.list[physicalIterator].str);
+						Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Assistant, personalityDictionary, null, null);
+						responseDictionary.Add(actionName, responseDialogue);		                             
 					}
 					break;
 				case "labs":
@@ -187,35 +150,12 @@ public class Disease : MonoBehaviour
 					for(int labIterator = 0; labIterator < labObj.keys.Count; labIterator++)
 					{
 						string actionName = (string)labObj.keys[labIterator];
-						JSONObject actionObj = labObj.list[labIterator];
 						Dictionary<Person.Personality, string> personalityDictionary = new Dictionary<Person.Personality, string>();
 						List<string> unlockList = new List<string>();
 						List<string> importantList = new List<string>();
-						for(int actionIterator = 0; actionIterator < actionObj.keys.Count; actionIterator++)
-						{
-							switch((string)actionObj.keys[actionIterator])
-							{
-							case "speech":
-								personalityDictionary.Add(Person.Personality.Default, actionObj.list[actionIterator].str);
-	                        	break;
-	                        case "unlocks":
-		                        JSONObject unlockObj = actionObj.list[actionIterator];
-		                        for(int unlockIterator = 0; unlockIterator < unlockObj.list.Count; unlockIterator++)
-		                        {
-									unlockList.Add(unlockObj[unlockIterator].str);
-								}                    
-							break;
-							case "important":
-								JSONObject importantObj = actionObj.list[actionIterator];
-								for(int importantIterator = 0; importantIterator < importantObj.list.Count; importantIterator++)
-								{
-									importantList.Add(importantObj[importantIterator].str);
-								}
-								break;
-							}
-							Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Assistant, personalityDictionary, unlockList, importantList);
-							responseDictionary.Add(actionName, responseDialogue);
-						}							                             
+						personalityDictionary.Add(Person.Personality.Default, labObj.list[labIterator].str);
+						Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Assistant, personalityDictionary, unlockList, importantList);
+						responseDictionary.Add(actionName, responseDialogue);							                             
 					}
 					break;
 				case "imaging":
@@ -223,35 +163,12 @@ public class Disease : MonoBehaviour
 					for(int imageIterator = 0; imageIterator < imageObj.keys.Count; imageIterator++)
 					{
 						string actionName = (string)imageObj.keys[imageIterator];
-						JSONObject actionObj = imageObj.list[imageIterator];
 						Dictionary<Person.Personality, string> personalityDictionary = new Dictionary<Person.Personality, string>();
 						List<string> unlockList = new List<string>();
 						List<string> importantList = new List<string>();
-						for(int actionIterator = 0; actionIterator < actionObj.keys.Count; actionIterator++)
-						{
-							switch((string)actionObj.keys[actionIterator])
-							{
-							case "speech":
-								personalityDictionary.Add(Person.Personality.Default, actionObj.list[actionIterator].str);
-							    break;
-							case "unlocks":
-								JSONObject unlockObj = actionObj.list[actionIterator];
-								for(int unlockIterator = 0; unlockIterator < unlockObj.list.Count; unlockIterator++)
-								{
-									unlockList.Add(unlockObj[unlockIterator].str);
-								}                    
-								break;
-							case "important":
-								JSONObject importantObj = actionObj.list[actionIterator];
-								for(int importantIterator = 0; importantIterator < importantObj.list.Count; importantIterator++)
-								{
-									importantList.Add(importantObj[importantIterator].str);
-								}
-								break;
-							}
-							Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Assistant, personalityDictionary, unlockList, importantList);
-							responseDictionary.Add(actionName, responseDialogue);
-						}							                             
+						personalityDictionary.Add(Person.Personality.Default, imageObj.list[imageIterator].str);
+						Dialogue responseDialogue = new Dialogue(Dialogue.Speaker.Assistant, personalityDictionary, unlockList, importantList);
+						responseDictionary.Add(actionName, responseDialogue);	                             
 					}
 					break;
 				case "treatment_response_success":

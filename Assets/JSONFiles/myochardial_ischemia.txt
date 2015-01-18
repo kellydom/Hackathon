@@ -16,7 +16,7 @@
 	"race": { "black": 0.5, "white": 0.3, "asian": 0.2 }
     },
     "history": {
-	"provocative_palliative": [
+	"provocative_palliative": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -29,9 +29,8 @@
 			"police": "Ya know, when I'm out busy on investigations it's bad, and it's better when I'm back in the car.",
 			"sports": "It's worse when I'm out playing, and it stops when I take a break. But I want to keep playing!"
 		}
-	    }
-	],
-	"quality": [
+	    },
+	"quality": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -44,9 +43,8 @@
 			"police": "It's like being crushed by a cruiser.",
 			"sports": "It's like I'm being squeezed to death!"
 		}
-	    }
-	],
-	"radiation": [
+	    },
+	"radiation": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -59,9 +57,8 @@
 			"police": "It spreads a bit toward my back and jaw.",
 			"sports": "I can even feel it in my left arm and jaw! Is that normal?"
 		}
-	    }
-	],
-	"severity": [
+	    },
+	"severity": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -74,10 +71,9 @@
 			"police": "It hurts, you betcha, 'bout a 7 or 8.",
 			"sports": "It's really bad! Like a 7 or 8. I think. I don't really know numbers."
 		}
-	    }
-	],
+	    },
 
-	"associated_symptoms": [
+	"associated_symptoms": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -90,9 +86,8 @@
 			"police": "Well, you know, I have a hard time breathing, sweat so much it'd freeze if I went outside, and I don't feel so good to my stomach.",
 			"sports": "I could hardly breathe, I was all sweaty, and I just about tossed my cookies! Thankfully, I got to keep my cookies."
 		}
-	    }
-	],
-	"timing": [
+	    },
+	"timing": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -105,9 +100,8 @@
 			"police": "Didn't expect it, nope. Lasted a half hour.",
 			"sports": "I was just skateboarding and then BAM! Just like that! Really!"
 		}
-	    }
-	],
-	"family_history": [
+	    },
+	"family_history": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -120,9 +114,8 @@
 			"police": "Since the old-timers moved out here, my family's had a bit of high blood pressure.",
 			"sports": "I always hear my parents being concerned about my grandpa's hypertension. Does that just mean he's really tense all the time?"
 		}
-	    }
-	],
-	"social_history": [
+	    },
+	"social_history": 
             {
                 "person": "patient",
 		"speech": {
@@ -135,9 +128,8 @@
 			"police": "I need my smokes to keep me awake during night patrol. But no drinks for me.",
 			"sports": "Grown-up drinks are nasty. I've been getting cigarettes from the kid across the street, though. He promises they'll make me cooler."
 		}
-	    }
-	],
-	"past_medical_history": [
+	    },
+	"past_medical_history": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -150,9 +142,8 @@
 			"police": "Got a bit of high blood pressure, ya, but nothing too serious.",
 			"sports": "My doctor once told me that I had hypertension like my grandpa, but I'm not tense at all! I just want to play!"
 		}
-	    }
-	],
-	"surgical_history": [
+	    },
+	"surgical_history": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -165,9 +156,8 @@
 			"police": "Never been in the hospital since the day I was born.",
 			"sports": "Nope! That's because I always wear a helmet."
 		}
-	    }
-	],
-	"medications": [
+	    },
+	"medications": 
 	    {
 		"person": "patient",
 		"speech": {
@@ -181,7 +171,6 @@
 			"sports": "Nah, those are for old people."
 		}
 	    }
-	]
     },
     "physical": {
 	"cardiac": "Everything seems normal.",
