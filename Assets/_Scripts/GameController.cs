@@ -223,8 +223,9 @@ public class GameController : MonoBehaviour {
 		person.AddDem(newDem);
 		person.AddDisease(thisDisease);
 		person.ChoosePersonality();
-		
-		Sprite sprite = possibleSprites[(int)person.spriteName];
+
+		ran = Random.Range (0, possibleSprites.Count);
+		Sprite sprite = possibleSprites[ran];
 
 		newEn.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
 
