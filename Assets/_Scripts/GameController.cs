@@ -117,7 +117,6 @@ public class GameController : MonoBehaviour {
 					break;
 				
 				case "treatment":
-					name = actionJSON.list[i].str;
 					break;
 				}
 				

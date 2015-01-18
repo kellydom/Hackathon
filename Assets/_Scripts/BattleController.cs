@@ -22,6 +22,9 @@ public class BattleController : MonoBehaviour {
 	public Button buttonPrefab;
 	public Canvas canvas;
 
+	public Button backButton;
+	List<Button> secondaryListOut;
+
 	// Use this for initialization
 	void Start () {
 		if(S == null){
@@ -45,6 +48,11 @@ public class BattleController : MonoBehaviour {
 			button.GetComponent<RectTransform>().anchoredPosition = ap;
 		}
 
+		ap = backButton.GetComponent<RectTransform>().anchoredPosition;
+		ap.x = -100;
+		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
+		backButton.enabled = false;
+		
 		StartCoroutine(WaitAndCreateButtons());
 
 
@@ -70,6 +78,10 @@ public class BattleController : MonoBehaviour {
 			Vector2 ap = temp.GetComponent<RectTransform>().anchoredPosition;
 			ap.x = -100;
 			temp.GetComponent<RectTransform>().anchoredPosition = ap;
+
+			if(!action.isUnlocked){
+				temp.interactable = false;
+			}
 
 			string name = action.name;
 			temp.GetComponentInChildren<Text>().text = MakeItLookGood(name);
@@ -122,17 +134,6 @@ public class BattleController : MonoBehaviour {
 	IEnumerator TopLevelButtonsOut(){
 		foreach(Button button in topLevelButtons){
 			button.enabled = true;
-			
-			Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(doctor.transform.position + Vector3.down * 3.0f/2);
-			button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-
-			Color c = button.image.color;
-			c.a = 0;
-			button.image.color = c;
-
-			c = button.GetComponentInChildren<Text>().color;
-			c.a = 0;
-			button.GetComponentInChildren<Text>().color = c;
 		}
 
 		Vector3 upRight = Vector3.right + Vector3.up;
@@ -144,7 +145,6 @@ public class BattleController : MonoBehaviour {
 
 			for(int i = 0; i < topLevelButtons.Count; ++i){
 				Button button = topLevelButtons[i];
-				button.enabled = true;
 
 				Vector3 pos = doctor.transform.position + Vector3.down;
 				Vector3 startPos = pos;
@@ -183,7 +183,6 @@ public class BattleController : MonoBehaviour {
 			
 			for(int i = 0; i < topLevelButtons.Count; ++i){
 				Button button = topLevelButtons[i];
-				button.enabled = true;
 				
 				Vector3 pos = doctor.transform.position + Vector3.down;
 				Vector3 startPos = pos;
@@ -211,37 +210,24 @@ public class BattleController : MonoBehaviour {
 		}
 	}
 
-	IEnumerator HistoryButtonsOut(){
-		foreach(Button button in historyButtons){
-			button.enabled = true;
-			
-			Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(doctor.transform.position + Vector3.down * 3.0f/2);
-			button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-			
-			Color c = button.image.color;
-			c.a = 0;
-			button.image.color = c;
-			
-			c = button.GetComponentInChildren<Text>().color;
-			c.a = 0;
-			button.GetComponentInChildren<Text>().color = c;
-		}
-		
-		Vector3 upRight = Vector3.right + Vector3.up;
-		Vector3 downRight = Vector3.right + Vector3.down;
+	IEnumerator SecondLevelButtonsOut(List<Button> buttonList){
+		secondaryListOut = buttonList;
+
+		Vector2 ap = GameController.S.battleCam.WorldToScreenPoint(doctor.transform.position + Vector3.down + Vector3.left / 2);
+		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
+		backButton.enabled = true;
 		
 		float t = 0;
 		while(t < 1){
 			t += Time.deltaTime * Time.timeScale / 0.3f;
 			
-			for(int i = 0; i < historyButtons.Count; ++i){
-				Button button = historyButtons[i];
-				button.enabled = true;
+			for(int i = 0; i < buttonList.Count; ++i){
+				Button button = buttonList[i];
 				
 				Vector3 pos = doctor.transform.position + Vector3.down;
 				Vector3 startPos = pos;
 				
-				float angle = (float)i/(historyButtons.Count - 1) * -90.0f + 45;
+				float angle = (float)i/(buttonList.Count - 1) * -90.0f + 45;
 				
 				pos.x -= (Mathf.Cos (angle * Mathf.Deg2Rad) * 2);
 				pos.y += (Mathf.Sin (angle * Mathf.Deg2Rad) * 2);
@@ -263,192 +249,86 @@ public class BattleController : MonoBehaviour {
 			yield return 0;
 		}
 		yield return 0;
+	}
+
+	
+	
+	IEnumerator SecondLevelButtonsIn(){
+		
+		Vector2 ap = backButton.GetComponent<RectTransform>().anchoredPosition;
+		ap.x = -100;
+		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
+		backButton.enabled = false;
+		
+		float t = 0;
+		while(t < 1){
+			t += Time.deltaTime * Time.timeScale / 0.3f;
+			
+			for(int i = 0; i < secondaryListOut.Count; ++i){
+				Button button = secondaryListOut[i];
+				
+				Vector3 pos = doctor.transform.position + Vector3.down;
+				Vector3 startPos = pos;
+				
+				float angle = (float)i/(secondaryListOut.Count - 1) * -90.0f + 45;
+				
+				pos.x -= (Mathf.Cos (angle * Mathf.Deg2Rad) * 2);
+				pos.y += (Mathf.Sin (angle * Mathf.Deg2Rad) * 2);
+				
+				Vector3 middlePos = Vector3.Lerp (pos, startPos, t);
+				
+				Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(middlePos);
+				button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
+				
+				Color c = button.image.color;
+				c.a = Mathf.Lerp (1, 0, t);
+				button.image.color = c;
+				
+				c = button.GetComponentInChildren<Text>().color;
+				c.a = Mathf.Lerp (1, 0, t);
+				button.GetComponentInChildren<Text>().color = c;
+			}
+			
+			yield return 0;
+		}
+		foreach(Button button in secondaryListOut){
+			ap = button.GetComponent<RectTransform>().anchoredPosition;
+			ap.x = -100;
+			button.GetComponent<RectTransform>().anchoredPosition = ap;
+		}
 	}
 
 	public void HistoryClicked(){
 		print ("historyClicked!");
 		StartCoroutine (TopLevelButtonsIn());
-		StartCoroutine(HistoryButtonsOut());
+		StartCoroutine(SecondLevelButtonsOut(historyButtons));
 	}
 
-	IEnumerator PhysicalButtonsOut(){
-		foreach(Button button in physicalButtons){
-			button.enabled = true;
-			
-			Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(doctor.transform.position + Vector3.down * 3.0f/2);
-			button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-			
-			Color c = button.image.color;
-			c.a = 0;
-			button.image.color = c;
-			
-			c = button.GetComponentInChildren<Text>().color;
-			c.a = 0;
-			button.GetComponentInChildren<Text>().color = c;
-		}
-		
-		Vector3 upRight = Vector3.right + Vector3.up;
-		Vector3 downRight = Vector3.right + Vector3.down;
-		
-		float t = 0;
-		while(t < 1){
-			t += Time.deltaTime * Time.timeScale / 0.3f;
-			
-			for(int i = 0; i < physicalButtons.Count; ++i){
-				Button button = physicalButtons[i];
-				button.enabled = true;
-				
-				Vector3 pos = doctor.transform.position + Vector3.down;
-				Vector3 startPos = pos;
-				
-				float angle = (float)i/(physicalButtons.Count - 1) * -90.0f + 45;
-				
-				pos.x -= (Mathf.Cos (angle * Mathf.Deg2Rad) * 2);
-				pos.y += (Mathf.Sin (angle * Mathf.Deg2Rad) * 2);
-				
-				Vector3 middlePos = Vector3.Lerp (startPos, pos, t);
-				
-				Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(middlePos);
-				button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-				
-				Color c = button.image.color;
-				c.a = Mathf.Lerp (0, 1, t);
-				button.image.color = c;
-				
-				c = button.GetComponentInChildren<Text>().color;
-				c.a = Mathf.Lerp (0, 1, t);
-				button.GetComponentInChildren<Text>().color = c;
-			}
-			
-			yield return 0;
-		}
-		yield return 0;
-	}
 	
 	public void PhysicalClicked(){
 		print ("PhysicalClicked!");
 		StartCoroutine (TopLevelButtonsIn());
-		StartCoroutine(PhysicalButtonsOut());
+		StartCoroutine(SecondLevelButtonsOut(physicalButtons));
 	}
 
-	IEnumerator LabButtonsOut(){
-		foreach(Button button in labButtons){
-			button.enabled = true;
-			
-			Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(doctor.transform.position + Vector3.down * 3.0f/2);
-			button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-			
-			Color c = button.image.color;
-			c.a = 0;
-			button.image.color = c;
-			
-			c = button.GetComponentInChildren<Text>().color;
-			c.a = 0;
-			button.GetComponentInChildren<Text>().color = c;
-		}
-		
-		Vector3 upRight = Vector3.right + Vector3.up;
-		Vector3 downRight = Vector3.right + Vector3.down;
-		
-		float t = 0;
-		while(t < 1){
-			t += Time.deltaTime * Time.timeScale / 0.3f;
-			
-			for(int i = 0; i < labButtons.Count; ++i){
-				Button button = labButtons[i];
-				button.enabled = true;
-				
-				Vector3 pos = doctor.transform.position + Vector3.down;
-				Vector3 startPos = pos;
-				
-				float angle = (float)i/(labButtons.Count - 1) * -90.0f + 45;
-				
-				pos.x -= (Mathf.Cos (angle * Mathf.Deg2Rad) * 2);
-				pos.y += (Mathf.Sin (angle * Mathf.Deg2Rad) * 2);
-				
-				Vector3 middlePos = Vector3.Lerp (startPos, pos, t);
-				
-				Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(middlePos);
-				button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-				
-				Color c = button.image.color;
-				c.a = Mathf.Lerp (0, 1, t);
-				button.image.color = c;
-				
-				c = button.GetComponentInChildren<Text>().color;
-				c.a = Mathf.Lerp (0, 1, t);
-				button.GetComponentInChildren<Text>().color = c;
-			}
-			
-			yield return 0;
-		}
-		yield return 0;
-	}
 	
 	public void LabClicked(){
 		print ("LabsClicked!");
 		StartCoroutine (TopLevelButtonsIn());
-		StartCoroutine(LabButtonsOut());
+		StartCoroutine(SecondLevelButtonsOut(labButtons));
 	}
-	
-	IEnumerator ImagingButtonsOut(){
-		foreach(Button button in imagingButtons){
-			button.enabled = true;
-			
-			Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(doctor.transform.position + Vector3.down * 3.0f/2);
-			button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-			
-			Color c = button.image.color;
-			c.a = 0;
-			button.image.color = c;
-			
-			c = button.GetComponentInChildren<Text>().color;
-			c.a = 0;
-			button.GetComponentInChildren<Text>().color = c;
-		}
-		
-		Vector3 upRight = Vector3.right + Vector3.up;
-		Vector3 downRight = Vector3.right + Vector3.down;
-		
-		float t = 0;
-		while(t < 1){
-			t += Time.deltaTime * Time.timeScale / 0.3f;
-			
-			for(int i = 0; i < imagingButtons.Count; ++i){
-				Button button = imagingButtons[i];
-				button.enabled = true;
-				
-				Vector3 pos = doctor.transform.position + Vector3.down;
-				Vector3 startPos = pos;
-				
-				float angle = (float)i/(imagingButtons.Count - 1) * -90.0f + 45;
-				
-				pos.x -= (Mathf.Cos (angle * Mathf.Deg2Rad) * 2);
-				pos.y += (Mathf.Sin (angle * Mathf.Deg2Rad) * 2);
-				
-				Vector3 middlePos = Vector3.Lerp (startPos, pos, t);
-				
-				Vector2 viewportPos = GameController.S.battleCam.WorldToScreenPoint(middlePos);
-				button.GetComponent<RectTransform>().anchoredPosition = viewportPos;
-				
-				Color c = button.image.color;
-				c.a = Mathf.Lerp (0, 1, t);
-				button.image.color = c;
-				
-				c = button.GetComponentInChildren<Text>().color;
-				c.a = Mathf.Lerp (0, 1, t);
-				button.GetComponentInChildren<Text>().color = c;
-			}
-			
-			yield return 0;
-		}
-		yield return 0;
-	}
-	
+
 	public void ImagingClicked(){
 		print ("ImagingClicked!");
 		StartCoroutine (TopLevelButtonsIn());
-		StartCoroutine (ImagingButtonsOut());
+		StartCoroutine(SecondLevelButtonsOut(imagingButtons));
+	}
+
+	public void BackToPrimary(){
+		print ("BackToPrimary");
+		StartCoroutine(TopLevelButtonsOut());
+		StartCoroutine(SecondLevelButtonsIn());
+
 	}
 
 	IEnumerator StartCo(){
@@ -473,6 +353,12 @@ public class BattleController : MonoBehaviour {
 		ap.y = -20;
 		healthSlider.GetComponent<RectTransform>().anchoredPosition = ap;
 
+		
+		ap = backButton.GetComponent<RectTransform>().anchoredPosition;
+		ap.x = -100;
+		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
+		backButton.enabled = false;
+
 		StartCoroutine(StartCo());
 	}
 
@@ -481,6 +367,12 @@ public class BattleController : MonoBehaviour {
 		Vector2 ap = healthSlider.GetComponent<RectTransform>().anchoredPosition;
 		ap.y = 20;
 		healthSlider.GetComponent<RectTransform>().anchoredPosition = ap;
+
+		
+		ap = backButton.GetComponent<RectTransform>().anchoredPosition;
+		ap.x = -100;
+		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
+		backButton.enabled = false;
 
 
 		
