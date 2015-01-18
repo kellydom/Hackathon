@@ -4,11 +4,28 @@ using System.Collections.Generic;
 
 public class Person : MonoBehaviour {
 
+	public enum SpriteEnum{
+		ELDERLY_WOMAN = 0,
+		JOCK = 1,
+		LITTLE_KID = 2,
+		GENERIC_GIRL = 3,
+		PARENT = 4,
+		POLICE = 5,
+		ASIAN_PRINCESS = 6,
+		PRINCESS = 7,
+		BLACK_SKATER = 8,
+		SKATER = 9,
+		ELDERLY_MAN = 10,
+		GENERIC_GUY = 11
+	}
+
 	public enum Personality{
 		Jock,
 		Sweet,
 		Default
 	};
+
+	public SpriteEnum spriteName;
 
 	public Personality personality;
 	Demographic dems;
@@ -33,54 +50,71 @@ public class Person : MonoBehaviour {
 		//list of probabilities for each personality type
 		List<float> probsPerPersonality = new List<float>();
 
-		if(dems.sex == Demographic.Sex.Male){
-			if(dems.age == Demographic.Age.Young){
-				probsPerPersonality.Add (-1);
-				probsPerPersonality.Add (0.5f);
-				probsPerPersonality.Add (0.5f);
+		if (dems.sex == Demographic.Sex.Female && dems.age == Demographic.Age.Old) {
+			personality = Personality.Sweet;
+			spriteName = SpriteEnum.ELDERLY_WOMAN;
+		}
+
+		else if (dems.sex == Demographic.Sex.Male && dems.age == Demographic.Age.Middle) {
+			float ran = Random.Range(0.0f, 1.0f);
+			if(ran <= 0.5f){
+				personality = Personality.Jock;
+				spriteName = SpriteEnum.JOCK;
 			}
-			if(dems.age == Demographic.Age.Middle){
-				probsPerPersonality.Add (0.5f);
-				probsPerPersonality.Add (0.25f);
-				probsPerPersonality.Add (0.25f);
-			}
-			if(dems.age == Demographic.Age.Old){
-				probsPerPersonality.Add (0.15f);
-				probsPerPersonality.Add (0.15f);
-				probsPerPersonality.Add (0.7f);
-				
+			else{
+				personality = Personality.Default;
+				spriteName = SpriteEnum.PARENT;
 			}
 		}
+
+		else if (dems.sex == Demographic.Sex.Male && dems.age == Demographic.Age.Young && dems.race == Demographic.Race.Black) {
+			personality = Personality.Default;
+			spriteName = SpriteEnum.BLACK_SKATER;
+		}
+
+		else if (dems.sex == Demographic.Sex.Male && dems.age == Demographic.Age.Young && dems.race != Demographic.Race.Black) {
+			float ran = Random.Range (0.0f, 1.0f);
+			if(ran <= 0.5f){
+				personality = Personality.Default;
+				spriteName = SpriteEnum.LITTLE_KID;
+			}
+			else{
+				personality = Personality.Default;
+				spriteName = SpriteEnum.SKATER;
+			}
+		}
+
+		else if (dems.sex == Demographic.Sex.Female && dems.age == Demographic.Age.Young && dems.race == Demographic.Race.Asian) {
+			personality = Personality.Default;
+			spriteName = SpriteEnum.ASIAN_PRINCESS;
+		}
+
+		else if (dems.sex == Demographic.Sex.Female && dems.age == Demographic.Age.Young && dems.race != Demographic.Race.Asian) {
+			personality = Personality.Default;
+			spriteName = SpriteEnum.PRINCESS;
+		}
+
+		else if(dems.sex == Demographic.Sex.Female && dems.age == Demographic.Age.Middle){
+			float ran = Random.Range(0.0f, 1.0f);
+			if(ran <= 0.5f){
+				personality = Personality.Default;
+				spriteName = SpriteEnum.GENERIC_GIRL;
+			}
+			else {
+				personality = Personality.Default;
+				spriteName = SpriteEnum.POLICE;
+			}
+		}
+
+		else if(dems.sex == Demographic.Sex.Male && dems.age == Demographic.Age.Old){
+			personality = Personality.Default;
+			spriteName = SpriteEnum.ELDERLY_MAN;
+		}
+
 		else{
-			if(dems.age == Demographic.Age.Young){
-				probsPerPersonality.Add (-1);
-				probsPerPersonality.Add (0.75f);
-				probsPerPersonality.Add (0.25f);
-				
-			}
-			if(dems.age == Demographic.Age.Middle){
-				probsPerPersonality.Add (0.1f);
-				probsPerPersonality.Add (0.35f);
-				probsPerPersonality.Add (0.55f);
-				
-			}
-			if(dems.age == Demographic.Age.Old){
-				probsPerPersonality.Add (0.001f);
-				probsPerPersonality.Add (0.75f);
-				probsPerPersonality.Add (0.24f);
-				
-			}
-
+			personality = Personality.Default;
+			spriteName = SpriteEnum.GENERIC_GUY;
 		}
-
-
-		float ran = Random.Range(0.0f, 1.0f);
-		for(int i = 0; i < probsPerPersonality.Count; ++i){
-			if(ran < probsPerPersonality[i]){
-				personality = (Personality)i;
-			}
-		}
-
 
 	}
 	
