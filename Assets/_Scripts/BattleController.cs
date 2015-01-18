@@ -240,7 +240,6 @@ public class BattleController : MonoBehaviour {
 			phrase = response.responses [Person.Personality.Default];
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		}
-		print (phrase);
 	}
 
 
