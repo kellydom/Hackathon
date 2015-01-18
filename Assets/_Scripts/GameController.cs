@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour {
 					{	
 						JSONObject questionObj = typeObj.list[typeIterator];
 						string name = typeObj.keys[typeIterator];
-						print (name);
+
 						bool isUnlocked = false;
 						Dialogue question = null;
 						Dictionary<Person.Personality, string> docsPersonality = new Dictionary<Person.Personality, string>();
@@ -77,7 +77,6 @@ public class GameController : MonoBehaviour {
 							{
 							case "speech":
 								string query = questionObj.list[questionIterator].str;
-								print (query);
 								docsPersonality.Add(Person.Personality.Default, query);
 								question = new Dialogue(Dialogue.Speaker.Doctor, docsPersonality, null, null);
 								break;
@@ -152,10 +151,11 @@ public class GameController : MonoBehaviour {
 		var info = new DirectoryInfo(path);
 		var fileInfo = info.GetFiles("*.txt");
 		foreach(var file in fileInfo){
-			string jsonO = File.ReadAllText(path + "SampleJSON.txt");
+			string jsonO = File.ReadAllText(file.ToString());
 			JSONObject emperorJSonOfSpartax = new JSONObject(jsonO);
 
 			Disease newDisease = new Disease(emperorJSonOfSpartax);
+			print (newDisease.name);
 			diseases.Add (newDisease);
 		}
 	}

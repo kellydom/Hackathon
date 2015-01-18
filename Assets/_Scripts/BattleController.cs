@@ -280,7 +280,6 @@ public class BattleController : MonoBehaviour {
 
 
 	public void ChooseDiagnostic(string diagname){
-		print (diagname);
 		Disease dwtSickness = enemy.disease;
 		if(diagname == dwtSickness.name){
 			treatButton.interactable = true;
@@ -295,7 +294,6 @@ public class BattleController : MonoBehaviour {
 	}
 
 	public void ChooseTreatment(string treatName){
-		print(treatName);
 
 		bool foundTreatment = false;
 

@@ -1,0 +1,229 @@
+{
+    "name": "Myocardial Ischemia",
+    "chief_complaint": {
+	"default": "My chest really hurts!",
+	"jock": "Dude, my chest is killing me!",
+	"sweet": "Oh... my chest!",
+	"dad": "Gee, my chest hurts!",
+	"princess": "Ow! Ow! Ow! My chest!",
+	"dandy": "My old Civil War chest wound is acting up!",
+	"police": "Chest hurts, you betcha!",
+	"sports": "Ow! My chest kills!"
+    },
+    "demographics": {
+	"sex": { "male": 0.5, "female": 0.5 },
+	"age": { "young": 0.1, "middle": 0.4, "old": 0.5 },
+	"race": { "black": 0.5, "white": 0.3, "asian": 0.2 }
+    },
+    "history": {
+	"provocative_palliative": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It's worse when I exercise, and it gets better when I rest.",
+			"jock": "Dude, it gets way worse when I exercise and better when I rest. I can't live like this; my life is a gym!",
+			"sweet": "It gets worse when I do my power walking and it gets better once I rest.",
+			"dad": "When I was raking the leaves, it felt worse, but it was better when I went back inside and sat down.",
+			"princess": "It's worse when I'm playing, and it stops when I rest.",
+			"dandy": "It hurts more when I'm out on my walk to feed the pigeons, but then I sit down on a bench by the path and it gets better.",
+			"police": "Ya know, when I'm out busy on investigations it's bad, and it's better when I'm back in the car.",
+			"sports": "It's worse when I'm out playing, and it stops when I take a break. But I want to keep playing!"
+		}
+	    }
+	],
+	"quality": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It's a strong, crushing sensation.",
+			"jock": "Dude, it's like my chest is being crushed!",
+			"sweet": "It feels like my chest is getting crushed.",
+			"dad": "It feels like my chest is getting crushed.",
+			"princess": "It's like a bear is crushing my chest!",
+			"dandy": "It's like being crushed by one of them dastardly horseless carriages!",
+			"police": "It's like being crushed by a cruiser.",
+			"sports": "It's like I'm being squeezed to death!"
+		}
+	    }
+	],
+	"radiation": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It travels to my left arm and jaw.",
+			"jock": "Dude, it spreads all the way to my left arm and jaw. It's nuts!",
+			"sweet": "It spreads a bit toward my back and jaw.",
+			"dad": "It comes out to my left arm and jaw.",
+			"princess": "I can feel it in my left arm and jaw!",
+			"dandy": "It spread to my back and these here jowls.",
+			"police": "It spreads a bit toward my back and jaw.",
+			"sports": "I can even feel it in my left arm and jaw! Is that normal?"
+		}
+	    }
+	],
+	"severity": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It was probably at least a 7 or 8.",
+			"jock": "Dude, it was at least a 7 or 8.",
+			"sweet": "Oh, deary. it was at least a 7 or 8.",
+			"dad": "Golly, probably a 7 or 8.",
+			"princess": "It's a 7 or 8! Really, really, really bad!",
+			"dandy": "I reckon it's pretty bad - a 7 or 8.",
+			"police": "It hurts, you betcha, 'bout a 7 or 8.",
+			"sports": "It's really bad! Like a 7 or 8. I think. I don't really know numbers."
+		}
+	    }
+	],
+
+	"associated_symptoms": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I also had a hard time breathing, I was sweating like crazy, and I felt super nauseous.",
+			"jock": "Dude, it was like I worked out too hard at the gym. I felt like I couldn't breathe, I was sweating bullets, and I wanted to puke.",
+			"sweet": "Well, I also had trouble breathing, I was sweating a lot, and I felt sick to my stomach.",
+			"dad": "I could barely breathe, was sweating buckets, and thought I was about to throw up.",
+			"princess": "I couldn't breathe, I was sweaty and gross, and I wanted to barf!",
+			"dandy": "Felt like when I won the marathon in '36: out of breath, sweating tons, and about to throw up.",
+			"police": "Well, you know, I have a hard time breathing, sweat so much it'd freeze if I went outside, and I don't feel so good to my stomach.",
+			"sports": "I could hardly breathe, I was all sweaty, and I just about tossed my cookies! Thankfully, I got to keep my cookies."
+		}
+	    }
+	],
+	"timing": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It started all of a sudden, and lasted for at least a half hour.",
+			"jock": "Dude, it just came out of nowhere and lasted for at least a half hour.",
+			"sweet": "It just came out of the blue, and it lasted for at least a half hour.",
+			"dad": "It was a big surprise, all of a sudden, and didn't let up for half an hour.",
+			"princess": "It just happened! My mom says it only lasted a half hour, but it felt like a zillion years to me!",
+			"dandy": "It was like the Second Coming - like that thief in the night, so unexpected. Lasted a dang long time, like a half hour.",
+			"police": "Didn't expect it, nope. Lasted a half hour.",
+			"sports": "I was just skateboarding and then BAM! Just like that! Really!"
+		}
+	    }
+	],
+	"family_history": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I know high blood pressure runs in my family.",
+			"jock": "Dude, I'm pretty sure I've got some family members with high blood pressure.",
+			"sweet": "Well, I know we've had high blood pressure in our family for generations.",
+			"dad": "I know my dad had trouble with high blood pressure when he was my age.",
+			"princess": "I think I've heard my parents talk about their blood pressure being high, or something like that.",
+			"dandy": "My doctor tells me there's a million things wrong with me at my age, but all I rember is somethin' 'bout high blood pressure.",
+			"police": "Since the old-timers moved out here, my family's had a bit of high blood pressure.",
+			"sports": "I always hear my parents being concerned about my grandpa's hypertension. Does that just mean he's really tense all the time?"
+		}
+	    }
+	],
+	"social_history": [
+            {
+                "person": "patient",
+		"speech": {
+			"default": "I don't drink, but I've been smoking about a pack a day for the past 20 years or so.",
+			"jock": "Dude, I don't really drink, but I smoke about a pack a day. Probably been doing it for about 20 years.",
+			"sweet": "Well, I don't drink, but I've been smoking a pack a day since I was a teenager. It was a different time back then.",
+			"dad": "I try not to do it in front of the kids, but between us I smoke a pack day. Haven't touched a bottle since my college days.",
+			"princess": "I can't drink! ... I do sometimes steal my dad's cigarettes, though... Don't tell him.",
+			"dandy": "I'm proud to keep the 'baccy farmers growin'! But, being Baptist and all, no liquor for me.",
+			"police": "I need my smokes to keep me awake during night patrol. But no drinks for me.",
+			"sports": "Grown-up drinks are nasty. I've been getting cigarettes from the kid across the street, though. He promises they'll make me cooler."
+		}
+	    }
+	],
+	"past_medical_history": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Well, I've been diagnosed with *high blood pressure*.",
+			"jock": "Dude, I think my *blood pressure is a little high*, or something like that.",
+			"sweet": "Yes, I've had *high blood pressure* for awhile.",
+			"dad": "My doctor used a sphygmomajiggy and said I have *high blood pressure*.",
+			"princess": "Last time I was here, the doctor told me I had high blood pressure like my parents.",
+			"dandy": "Doctor told me I got blood pressure high as the moon!",
+			"police": "Got a bit of high blood pressure, ya, but nothing too serious.",
+			"sports": "My doctor once told me that I had hypertension like my grandpa, but I'm not tense at all! I just want to play!"
+		}
+	    }
+	],
+	"surgical_history": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I've never had surgery.",
+			"jock": "Dude, I've never had any surgeries.",
+			"sweet": "No, I've never had surgery. I even still have my tonsils!",
+			"dad": "All my kinds have had their appendixes removed, but no surgery for me yet!",
+			"princess": "Is that where they cut you open? Gross! I've never had that, and I don't ever want to!",
+			"dandy": "No dirty doctor's had his hands inside me!",
+			"police": "Never been in the hospital since the day I was born.",
+			"sports": "Nope! That's because I always wear a helmet."
+		}
+	    }
+	],
+	"medications": [
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I'm not taking any medication.",
+			"jock": "Dude, I don't take anything. Seriously dude, not even steroids. Impressed?",
+			"sweet": "I'm not currently taking any medication. Why do you look so surprised?",
+			"dad": "Nosirree!",
+			"princess": "Yuk! No way!",
+			"dandy": "I get 3 pill holders each Christmas, and haven't got anything to use them for yet!",
+			"police": "We don't do drugs down at the department.",
+			"sports": "Nah, those are for old people."
+		}
+	    }
+	]
+    },
+    "physical": {
+	"cardiac": "Everything seems normal.",
+	"pulmonary": "Sounds like there are some crackles and wheezes on both sides.",
+	"abdominal": "Everything seems normal.",
+	"musculoskeletal": "Everything seems normal.",
+	"neurologic": "Everything seems normal.",
+	"dermatologic": "Everything seems normal."
+    },
+    "labs": {
+	"complete_blood_count": "Everything seems normal.",
+	"sputum_culture": "Doesn't look like anything grew.",
+	"ecg": "Everything seems normal.",
+        "other_blood_tests": "Everything seems normal."
+    },
+    "imaging": {
+	"x_ray": "Everything seems normal.",
+	"echocardiogram": "Everything seems normal.",
+	"ct": "Everything seems normal.",
+	"mri": "Everything seems normal."
+    },
+    "treatment": [
+	"Thrombolytics", "Anticoagulants", "Stenting", "Analgesics"
+    ],
+    "treatment_response_success": {
+	"default": "That feels much better!",
+	"jock": "Dude, I feel great! This calls for some celebratory push-ups!",
+	"sweet": "Oh, my! I feel so much better! Thanks so much, deary!",
+	"dad": "By golly, that did the trick!",
+	"princess": "I feel so pretty again!",
+	"dandy": "Hallelujah! Thanks for usin' your mystical powers and all!",
+	"police": "I'm right ready new, you betcha!",
+	"sports": "Wow! I feel great! Time to get out and play!"
+    },
+    "treatment_response_failure": {
+	"default": "I don't think that helped...",
+	"jock": "Dude, I'm pretty sure that didn't work...",
+	"sweet": "Oh, dear... I'm not sure that did any good...",
+	"dad": "Gee, I don't feel any different...",
+	"princess": "That didn't do anything!",
+	"dandy": "Still feel like hell...",
+	"police": "Ya know, I don't know that did much...",
+	"sports": "I still feel sick! Hurry up!"
+    }
+}
