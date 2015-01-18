@@ -54,15 +54,15 @@
 		"dermatologic":true
 	},
 	"labs":{
-		"complete_blood_count":false,
-		"sputum_culture":false,
-		"ecg":false
+		"complete_blood_count":true,
+		"sputum_culture":true,
+		"ecg":true
 	},
 	"imaging":{
-		"x_ray":false,
-		"echocardiogram":false,
-		"ct":false,
-		"mri":false
+		"x_ray":true,
+		"echocardiogram":true,
+		"ct":true,
+		"mri":true
 	},
 	"treatment":[
 		"Analgesics",
