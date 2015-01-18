@@ -231,12 +231,48 @@ public class BattleController : MonoBehaviour {
 			if(actionName == "ct"){
 				healthSlider.value = healthSlider.value - 0.30f;
 			}
+			if(actionName == "x_ray"){
+				healthSlider.value = healthSlider.value - 0.15f;
+			}
+			if(actionName == "mri"){
+				healthSlider.value = healthSlider.value - 0.25f;
+			}
+			if(actionName == "echocardiogram"){
+				healthSlider.value = healthSlider.value - 0.20f;
+			}
 			phrase = response.responses [Person.Personality.Default];
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		} else if (currentAction.type == Action.Type.LAB) {
+			if(actionName == "complete_blood_count"){
+				healthSlider.value = healthSlider.value - 0.18f;
+			}
+			if(actionName == "sputum_culture"){
+				healthSlider.value = healthSlider.value - 0.12f;
+			}
+			if(actionName == "ecg"){
+				healthSlider.value = healthSlider.value - 0.14f;
+			}
 			phrase = response.responses [Person.Personality.Default];
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		} else if (currentAction.type == Action.Type.PHYSICAL) {
+			if(actionName == "cardiac"){
+				healthSlider.value = healthSlider.value - 0.09f;
+			}
+			if(actionName == "pulmonary"){
+				healthSlider.value = healthSlider.value - 0.11f;
+			}
+			if(actionName == "abdominal"){
+				healthSlider.value = healthSlider.value - 0.10f;
+			}
+			if(actionName == "musculoskeletal"){
+				healthSlider.value = healthSlider.value - 0.09f;
+			}
+			if(actionName == "neurologic"){
+				healthSlider.value = healthSlider.value - 0.10f;
+			}
+			if(actionName == "dermatalogic"){
+				healthSlider.value = healthSlider.value - 0.06f;
+			}
 			phrase = response.responses [Person.Personality.Default];
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		}
