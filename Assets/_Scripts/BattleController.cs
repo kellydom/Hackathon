@@ -25,6 +25,17 @@ public class BattleController : MonoBehaviour {
 	public Button backButton;
 	List<Button> secondaryListOut;
 
+	public Button diagnoseButton;
+	public Button treatButton;
+
+	public Image diagnoseImage;
+	Vector2	 imagePos;
+	public GameObject diagnosePanel;
+	public Button diagnoseButtons;
+
+	public Image treatmentImage;
+	public GameObject treatPanel;
+
 	// Use this for initialization
 	void Start () {
 		if(S == null){
@@ -55,12 +66,56 @@ public class BattleController : MonoBehaviour {
 		
 		StartCoroutine(WaitAndCreateButtons());
 
+		HideDiagAndTreat();
+
+		diagnoseImage.enabled = false;
+		treatmentImage.enabled = false;
+		imagePos = diagnoseImage.GetComponent<RectTransform>().anchoredPosition;
+		Vector2 pos = treatmentImage.GetComponent<RectTransform>().anchoredPosition;
+		pos.y = -1000;
+		treatmentImage.GetComponent<RectTransform>().anchoredPosition = pos;
 
 	}
 	IEnumerator WaitAndCreateButtons(){
 		yield return new WaitForSeconds(0.5f);
 		
 		CreateButtons();
+	}
+
+	void ShowDiagAndTreat(){
+		
+		Color c = diagnoseButton.image.color;
+		c.a = 1;
+		diagnoseButton.image.color = c;
+		c = diagnoseButton.GetComponentInChildren<Text>().color;
+		c.a = 1;
+		diagnoseButton.GetComponentInChildren<Text>().color = c;
+		
+		c = treatButton.image.color;
+		c.a = 1;
+		treatButton.image.color = c;
+		c = treatButton.GetComponentInChildren<Text>().color;
+		c.a = 1;
+		treatButton.GetComponentInChildren<Text>().color = c;
+
+	}
+
+	void HideDiagAndTreat(){
+		
+		Color c = diagnoseButton.image.color;
+		c.a = 0;
+		diagnoseButton.image.color = c;
+		c = diagnoseButton.GetComponentInChildren<Text>().color;
+		c.a = 0;
+		diagnoseButton.GetComponentInChildren<Text>().color = c;
+		
+		c = treatButton.image.color;
+		c.a = 0;
+		treatButton.image.color = c;
+		c = treatButton.GetComponentInChildren<Text>().color;
+		c.a = 0;
+		treatButton.GetComponentInChildren<Text>().color = c;
+
 	}
 
 	
@@ -100,6 +155,42 @@ public class BattleController : MonoBehaviour {
 			}
 		}
 
+		int i = 0;
+
+		foreach(Disease disease in GameController.S.diseases){
+			Button temp = Instantiate (diagnoseButtons) as Button;
+			
+			
+			temp.transform.SetParent(diagnosePanel.transform, false);
+			Vector2 ap = temp.GetComponent<RectTransform>().anchoredPosition;
+			ap.x = 0;
+			ap.y = -30 + -15*i;
+
+			string name = disease.name;
+			temp.GetComponentInChildren<Text>().text = MakeItLookGood(name);
+			temp.onClick.AddListener(() => ChooseDiagnostic(name));
+
+			i++;
+		}
+		
+		i = 0;
+		foreach(string treatment in GameController.S.treatments){
+			Button temp = Instantiate (diagnoseButtons) as Button;
+			
+			
+			temp.transform.SetParent(treatPanel.transform, false);
+			Vector2 ap = temp.GetComponent<RectTransform>().anchoredPosition;
+			ap.x = 0;
+			ap.y = -30 + -40*i;
+			temp.GetComponent<RectTransform>().anchoredPosition = ap;
+
+			temp.GetComponentInChildren<Text>().text = MakeItLookGood(treatment);
+			string tempTreat = treatment;
+			temp.onClick.AddListener(() => ChooseTreatment(tempTreat));
+			
+			i++;
+		}
+
 
 
 	}
@@ -110,11 +201,12 @@ public class BattleController : MonoBehaviour {
 	}
 
 	IEnumerator WaitForDialogue(Dialogue.Speaker speaker, string phrase) {
-		while (!BattleDialogue.S.readyForMore) {
+		while(!BattleDialogue.S.readyForMore){
 			yield return 0;
 		}
-		BattleDialogue.S.SaySomething (speaker, phrase);
+		BattleDialogue.S.SaySomething(speaker, phrase);
 	}
+
 
 	public void PerformAction(string actionName){
 		print (actionName);
@@ -149,6 +241,67 @@ public class BattleController : MonoBehaviour {
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		}
 		print (phrase);
+	}
+
+
+	public void ChooseDiagnostic(string diagname){
+		print (diagname);
+		Disease dwtSickness = enemy.disease;
+		if(diagname == dwtSickness.name){
+			treatButton.interactable = true;
+			diagnoseImage.enabled = false;
+			diagnoseButton.interactable = false;
+
+			Vector2 pos = treatmentImage.GetComponent<RectTransform>().anchoredPosition;
+			diagnoseImage.GetComponent<RectTransform>().anchoredPosition = pos;
+			treatmentImage.GetComponent<RectTransform>().anchoredPosition = imagePos;
+
+		}
+	}
+
+	public void ChooseTreatment(string treatName){
+		print(treatName);
+
+		bool foundTreatment = false;
+
+		foreach(string treat in enemy.disease.successfullTreatments){
+			if(treatName == treat){
+				foundTreatment = true;
+			}
+		}
+
+		if(foundTreatment){
+			CorrectTreatment(treatName);
+		}
+	}
+
+	IEnumerator WaitToExitBattle(){
+		float t = 0;
+		while(t < 1){
+			t += Time.deltaTime * Time.timeScale / 0.5f;
+			yield return 0;
+		}
+
+		while(!BattleDialogue.S.readyForMore){
+			yield return 0;
+		}
+		BattleEnd();
+	}
+
+	void CorrectTreatment(string treatment){
+		string phrase = "You did it! " + treatment + " was the cure for " + enemy.disease.name + "!";
+
+		StartCoroutine(WaitForDialogue (Dialogue.Speaker.Assistant, phrase));
+		StartCoroutine(WaitToExitBattle());
+	}
+
+	public void Diagnose(){
+		
+		diagnoseImage.enabled = !diagnoseImage.enabled;
+	}
+
+	public void Treatment(){
+		treatmentImage.enabled = !treatmentImage.enabled;
 	}
 
 
@@ -381,8 +534,17 @@ public class BattleController : MonoBehaviour {
 		ap.x = -100;
 		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
 		backButton.enabled = false;
-
-
+		
+		treatButton.interactable = false;
+		diagnoseButton.interactable = true;
+		treatmentImage.enabled = false;
+		
+		Vector2 pos = diagnoseImage.GetComponent<RectTransform>().anchoredPosition;
+		pos.y = -1000;
+		treatmentImage.GetComponent<RectTransform>().anchoredPosition = pos;
+		diagnoseImage.GetComponent<RectTransform>().anchoredPosition = imagePos;
+		
+		ShowDiagAndTreat();
 		StartCoroutine(StartCo());
 	}
 
@@ -401,7 +563,19 @@ public class BattleController : MonoBehaviour {
 		BattleDialogue.S.MoveLogUp();
 		BattleDialogue.S.RemoveLog();
 
-		
+		HideDiagAndTreat();
+
+		if(secondaryListOut != null){
+			foreach(Button button in secondaryListOut){
+				ap = button.GetComponent<RectTransform>().anchoredPosition;
+				ap.x = -100;
+				button.GetComponent<RectTransform>().anchoredPosition = ap;
+			}
+		}
+
+		diagnoseImage.enabled = false;
+		treatmentImage.enabled = false;
+
 		foreach(Button button in topLevelButtons){
 			button.enabled = false;
 			
@@ -409,6 +583,7 @@ public class BattleController : MonoBehaviour {
 			ap.x = -100;
 			button.GetComponent<RectTransform>().anchoredPosition = ap;
 		}
+		Destroy (enemy.gameObject);
 		GameController.S.GoToOverworld();
 	}
 	
