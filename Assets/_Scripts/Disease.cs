@@ -104,6 +104,21 @@ public class Disease : MonoBehaviour
 									case "sweet":
 										speechKey = Person.Personality.Sweet;
 										break;
+									case "dandy":
+										speechKey = Person.Personality.Dandy;
+										break;
+									case "dad":
+										speechKey = Person.Personality.Dad;
+										break;
+									case "police":
+										speechKey = Person.Personality.Polics;
+										break;
+									case "princess":
+										speechKey = Person.Personality.Princess;
+										break;
+									case "sports":
+										speechKey = Person.Personality.Sports;
+										break;
 									case "default":
 										speechKey = Person.Personality.Default;
 										break;
@@ -254,6 +269,21 @@ public class Disease : MonoBehaviour
 						case "sweet":
 							speechKey = Person.Personality.Sweet;
 							break;
+						case "dandy":
+							speechKey = Person.Personality.Dandy;
+							break;
+						case "dad":
+							speechKey = Person.Personality.Dad;
+							break;
+						case "police":
+							speechKey = Person.Personality.Polics;
+							break;
+						case "princess":
+							speechKey = Person.Personality.Princess;
+							break;
+						case "sports":
+							speechKey = Person.Personality.Sports;
+							break;
 						case "default":
 							speechKey = Person.Personality.Default;
 							break;
@@ -277,6 +307,21 @@ public class Disease : MonoBehaviour
 							break;
 						case "sweet":
 							speechKey = Person.Personality.Sweet;
+							break;
+						case "dandy":
+							speechKey = Person.Personality.Dandy;
+							break;
+						case "dad":
+							speechKey = Person.Personality.Dad;
+							break;
+						case "police":
+							speechKey = Person.Personality.Polics;
+							break;
+						case "princess":
+							speechKey = Person.Personality.Princess;
+							break;
+						case "sports":
+							speechKey = Person.Personality.Sports;
 							break;
 						case "default":
 							speechKey = Person.Personality.Default;
