@@ -120,6 +120,7 @@ public class BattleDialogue : MonoBehaviour {
 		Vector2 ap = actualLog.GetComponent<RectTransform>().anchoredPosition;
 		ap.x = -1000;
 		actualLog.GetComponent<RectTransform>().anchoredPosition = ap;
+		actualLog.GetComponentInChildren<Text>().text = "";
 	}
 
 	public void ToggleLog(){
@@ -145,6 +146,7 @@ public class BattleDialogue : MonoBehaviour {
 	}
 
 	public void MoveLogUp(){
+
 		
 		Vector2 ap = log.GetComponent<RectTransform>().anchoredPosition;
 		ap.y = 100;

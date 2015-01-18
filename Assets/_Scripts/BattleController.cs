@@ -25,6 +25,9 @@ public class BattleController : MonoBehaviour {
 	public Button backButton;
 	List<Button> secondaryListOut;
 
+	public Button diagnoseButton;
+	public Button treatButton;
+
 	// Use this for initialization
 	void Start () {
 		if(S == null){
@@ -55,12 +58,49 @@ public class BattleController : MonoBehaviour {
 		
 		StartCoroutine(WaitAndCreateButtons());
 
+		HideDiagAndTreat();
 
 	}
 	IEnumerator WaitAndCreateButtons(){
 		yield return new WaitForSeconds(0.5f);
 		
 		CreateButtons();
+	}
+
+	void ShowDiagAndTreat(){
+		
+		Color c = diagnoseButton.image.color;
+		c.a = 1;
+		diagnoseButton.image.color = c;
+		c = diagnoseButton.GetComponentInChildren<Text>().color;
+		c.a = 1;
+		diagnoseButton.GetComponentInChildren<Text>().color = c;
+		
+		c = treatButton.image.color;
+		c.a = 1;
+		treatButton.image.color = c;
+		c = treatButton.GetComponentInChildren<Text>().color;
+		c.a = 1;
+		treatButton.GetComponentInChildren<Text>().color = c;
+
+	}
+
+	void HideDiagAndTreat(){
+		
+		Color c = diagnoseButton.image.color;
+		c.a = 0;
+		diagnoseButton.image.color = c;
+		c = diagnoseButton.GetComponentInChildren<Text>().color;
+		c.a = 0;
+		diagnoseButton.GetComponentInChildren<Text>().color = c;
+		
+		c = treatButton.image.color;
+		c.a = 0;
+		treatButton.image.color = c;
+		c = treatButton.GetComponentInChildren<Text>().color;
+		c.a = 0;
+		treatButton.GetComponentInChildren<Text>().color = c;
+
 	}
 
 	
@@ -110,11 +150,12 @@ public class BattleController : MonoBehaviour {
 	}
 
 	IEnumerator WaitForDialogue(Dialogue.Speaker speaker, string phrase) {
-		while (!BattleDialogue.S.readyForMore) {
+		while(!BattleDialogue.S.readyForMore){
 			yield return 0;
 		}
-		BattleDialogue.S.SaySomething (speaker, phrase);
+		BattleDialogue.S.SaySomething(speaker, phrase);
 	}
+
 
 	public void PerformAction(string actionName){
 		print (actionName);
@@ -131,9 +172,9 @@ public class BattleController : MonoBehaviour {
 		string phrase;
 		if (currentAction.type == Action.Type.HISTORY) {
 			Dialogue question = currentAction.question;
-			BattleDialogue.S.SaySomething(Dialogue.Speaker.Doctor, question.responses[Person.Personality.Default]);
+			BattleDialogue.S.SaySomething (Dialogue.Speaker.Doctor, question.responses[Person.Personality.Default]);
 			phrase = response.responses[enemy.personality];
-			StartCoroutine(WaitForDialogue(response.speaker, phrase));
+			StartCoroutine(WaitForDialogue (response.speaker, phrase));
 		} else {
 			phrase = response.responses[Person.Personality.Default];
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
@@ -371,7 +412,7 @@ public class BattleController : MonoBehaviour {
 		backButton.GetComponent<RectTransform>().anchoredPosition = ap;
 		backButton.enabled = false;
 
-
+		ShowDiagAndTreat();
 		StartCoroutine(StartCo());
 	}
 
@@ -390,7 +431,12 @@ public class BattleController : MonoBehaviour {
 		BattleDialogue.S.MoveLogUp();
 		BattleDialogue.S.RemoveLog();
 
-		
+		HideDiagAndTreat();
+
+		if(secondaryListOut.Count > 0){
+			StartCoroutine(SecondLevelButtonsIn());
+		}
+
 		foreach(Button button in topLevelButtons){
 			button.enabled = false;
 			
