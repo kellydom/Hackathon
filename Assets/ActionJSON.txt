@@ -64,7 +64,23 @@
 		"ct":false,
 		"mri":false
 	},
-	"treatment":{
-	
-	}
+	"treatment":[
+		"Analgesics",
+		"Antibiotics",
+		"Anticoagulants",
+		"Anticonvulsants",
+		"Antidepressants",
+		"Antifungals",
+		"Antivirals",
+		"Beta blockers",
+		"Cytotoxics",
+		"Diuretics",
+		"Hormones",
+		"Immunosuppressants",
+		"Proton pump inhibitors",
+		"Stenting",
+		"Steroids",
+		"Surgery",
+		"Thrombolytics"
+	]
 }

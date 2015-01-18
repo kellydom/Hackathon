@@ -15,9 +15,9 @@ public class GameController : MonoBehaviour {
 
 	public GameObject tempSpawnPrefab;
 
-	List<Disease> diseases = new List<Disease>();
+	public List<Disease> diseases = new List<Disease>();
 	public List<Action> actions = new List<Action>();
-	public List<Treatment> treatments = new List<Treatment>();
+	public List<string> treatments = new List<string>();
 
 	public string path;
 
@@ -134,6 +134,13 @@ public class GameController : MonoBehaviour {
 					break;
 				
 				case "treatment":
+					typeObj = actionJSON.list[i];
+					for(int iterator = 0; iterator < typeObj.Count; iterator++){
+						string name = typeObj.list[iterator].str;
+
+						treatments.Add (name);
+
+					}
 					break;
 				}
 				
