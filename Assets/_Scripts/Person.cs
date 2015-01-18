@@ -22,6 +22,11 @@ public class Person : MonoBehaviour {
 	public enum Personality{
 		Jock,
 		Sweet,
+		Dandy,
+		Dad,
+		Polics,
+		Princess,
+		Sports,
 		Default
 	};
 
@@ -62,13 +67,13 @@ public class Person : MonoBehaviour {
 				spriteName = SpriteEnum.JOCK;
 			}
 			else{
-				personality = Personality.Default;
+				personality = Personality.Dad;
 				spriteName = SpriteEnum.PARENT;
 			}
 		}
 
 		else if (dems.sex == Demographic.Sex.Male && dems.age == Demographic.Age.Young && dems.race == Demographic.Race.Black) {
-			personality = Personality.Default;
+			personality = Personality.Sports;
 			spriteName = SpriteEnum.BLACK_SKATER;
 		}
 
@@ -79,18 +84,18 @@ public class Person : MonoBehaviour {
 				spriteName = SpriteEnum.LITTLE_KID;
 			}
 			else{
-				personality = Personality.Default;
+				personality = Personality.Sports;
 				spriteName = SpriteEnum.SKATER;
 			}
 		}
 
 		else if (dems.sex == Demographic.Sex.Female && dems.age == Demographic.Age.Young && dems.race == Demographic.Race.Asian) {
-			personality = Personality.Default;
+			personality = Personality.Princess;
 			spriteName = SpriteEnum.ASIAN_PRINCESS;
 		}
 
 		else if (dems.sex == Demographic.Sex.Female && dems.age == Demographic.Age.Young && dems.race != Demographic.Race.Asian) {
-			personality = Personality.Default;
+			personality = Personality.Princess;
 			spriteName = SpriteEnum.PRINCESS;
 		}
 
@@ -101,13 +106,13 @@ public class Person : MonoBehaviour {
 				spriteName = SpriteEnum.GENERIC_GIRL;
 			}
 			else {
-				personality = Personality.Default;
+				personality = Personality.Polics;
 				spriteName = SpriteEnum.POLICE;
 			}
 		}
 
 		else if(dems.sex == Demographic.Sex.Male && dems.age == Demographic.Age.Old){
-			personality = Personality.Default;
+			personality = Personality.Dandy;
 			spriteName = SpriteEnum.ELDERLY_MAN;
 		}
 

@@ -625,8 +625,19 @@ public class BattleController : MonoBehaviour {
 		Destroy (enemy.gameObject);
 		GameController.S.GoToOverworld();
 	}
-	
+
+	void Lose(){
+		string phrase = "Oh no! You didn't manage to realize that the patient has " + enemy.disease.name + " and can be cured with " + enemy.disease.successfullTreatments[0] + "!";
+
+		StartCoroutine(WaitForDialogue (Dialogue.Speaker.Assistant, phrase));
+		StartCoroutine(WaitToExitBattle());
+	}
+
 	// Update is called once per frame
 	void Update () {
+		if(healthSlider.value <= 0){
+			Lose ();
+		}
+
 	}
 }
