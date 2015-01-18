@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour {
 	public List<Action> actions = new List<Action>();
 	public List<string> treatments = new List<string>();
 
-	public string path;
 
 	public GameObject blockingPlane;
 
@@ -49,7 +48,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void CreateActionList(){
-		string actionList = File.ReadAllText("Assets/ActionJSON.txt");
+		string actionList = File.ReadAllText("ActionJSON.txt");
 		JSONObject actionJSON = new JSONObject(actionList);
 
 		for(int i = 0; i < actionJSON.Count; i++)
@@ -148,7 +147,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void CreateDiseases(){
-		var info = new DirectoryInfo(path);
+		var info = new DirectoryInfo("JSONFiles");
 		var fileInfo = info.GetFiles("*.txt");
 		foreach(var file in fileInfo){
 			string jsonO = File.ReadAllText(file.ToString());

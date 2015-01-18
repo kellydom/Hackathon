@@ -29,6 +29,10 @@ public class AI : MonoBehaviour {
 			pos += gravVec;
 			transform.position = pos;
 		}
+		if(transform.position.y < 1.3f){
+			Vector3	pos = transform.position;
+			pos.y = 1.3f;
+		}
 	}
 	
 	// Update is called once per frame

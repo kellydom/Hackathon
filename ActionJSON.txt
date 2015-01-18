@@ -1,0 +1,86 @@
+{
+	"history": {
+		"provocative_palliative": {
+			"speech": "Is there anything that makes it better or worse?",
+			"visibility": true
+		},
+		"quality": {
+			"speech": "Can you describe the pain?",
+			"visibility": true
+		},
+		"radiation": {
+			"speech": "Does the pain go anywhere else?",
+			"visibility": true
+		},
+		"severity": {
+			"speech": "On a scale from 1 to 10, how bad is the pain?",
+			"visibility": true
+		},
+		"associated_symptoms": {
+			"speech": "Do you have any other symptoms that go along with the pain",
+			"visibility": true
+		},
+		"timing": {
+			"speech": "How often do you get episodes? How long do they last?",
+			"visibility": true
+		},
+		"family_history": {
+			"speech": "Are there any diseases that run in your family?",
+			"visibility": true
+		},
+		"social_history": {
+			"speech": "Do you smoke or drink?",
+			"visibility": true
+		},
+		"past_medical_history": {
+			"speech": "Do you have any history of health problems?",
+			"visibility": true
+		},
+		"surgical_history": {
+			"speech": "Have you ever had surgery?",
+			"visibility": true
+		},
+		"medications": {
+			"speech": "Are you currently taking any medication?",
+			"visibility": true
+		}
+	},
+	"physical": {
+		"cardiac":true,
+		"pulmonary":true,
+		"abdominal":true,
+		"musculoskeletal":true,
+		"neurologic":true,
+		"dermatologic":true
+	},
+	"labs":{
+		"complete_blood_count":true,
+		"sputum_culture":true,
+		"ecg":true
+	},
+	"imaging":{
+		"x_ray":true,
+		"echocardiogram":true,
+		"ct":true,
+		"mri":true
+	},
+	"treatment":[
+		"Analgesics",
+		"Antibiotics",
+		"Anticoagulants",
+		"Anticonvulsants",
+		"Antidepressants",
+		"Antifungals",
+		"Antivirals",
+		"Beta blockers",
+		"Cytotoxics",
+		"Diuretics",
+		"Hormones",
+		"Immunosuppressants",
+		"Proton pump inhibitors",
+		"Stenting",
+		"Steroids",
+		"Surgery",
+		"Thrombolytics"
+	]
+}

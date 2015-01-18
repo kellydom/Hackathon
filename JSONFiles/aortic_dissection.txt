@@ -1,0 +1,218 @@
+{
+    "name": "Aortic Dissection",
+    "chief_complaint": {
+	"default": "My chest really hurts!",
+	"jock": "Dude, my chest is killing me!",
+	"sweet": "Oh... my chest!",
+	"dad": "Gee, my chest hurts!",
+	"princess": "Ow! Ow! Ow! My chest!",
+	"dandy": "My old Civil War chest wound is acting up!",
+	"police": "Chest hurts, you betcha!",
+	"sports": "Ow! My chest kills!"
+    },
+    "demographics": {
+	"sex": { "male": 0.7, "female": 0.3 },
+	"age": { "young": 0.1, "middle": 0.4, "old": 0.5 },
+	"race": { "black": 0.5, "white": 0.3, "asian": 0.2 }
+    },
+    "history": {
+	"provocative_palliative": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Nothing makes it better or worse.",
+			"jock": "Dude, nothing helps.",
+			"sweet": "Nothing helps!",
+			"dad": "Can't do anything about it!",
+			"princess": "Nothing helps, even when I whine!",
+			"dandy": "Nuthin' - not even that old bottle of arsenic tonic I keep for emergencies.",
+			"police": "Can't do anything, ya know?",
+			"sports": "Nothing helps!"
+		}
+	    },
+	"quality": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It was a sudden *ripping* sensation.",
+			"jock": "Dude, it was like a *ripping* sensation out of nowhere!",
+			"sweet": "It felt like something was *ripping* inside my chest!",
+			"dad": "It was like something in my chest *ripped* in half.",
+			"princess": "It's like a monster was *ripping* my chest apart!",
+			"dandy": "Felt like a log being split in half, like a big *rip*.",
+			"police": "Like a dead tree falling in two pieces, a big *rip*.",
+			"sports": "It felt like *ripping* the Vecro on my shoes apart!"
+		}
+	    },
+	"radiation": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It spread toward my *back* a bit.",
+			"jock": "Dude, I could feel it a bit in my *back*, too.",
+			"sweet": "I could feel it in my *back*, too.",
+			"dad": "I could feel it in my *back*, too.",
+			"princess": "I even felt it in my back!",
+			"dandy": "It snuck up into my *back*.",
+			"police": "The pain moved to my back, ya.",
+			"sports": "I even felt it in my back!"
+		}
+	    },
+	"severity": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It was a *10*; *I've never felt anything like it*.",
+			"jock": "Dude, it was definitely a *10*. It was *worse than anything I've ever felt*.",
+			"sweet": "It was definitely a *10*! In all my years, *I've never felt anything like it*.",
+			"dad": "The worst thing I've ever felt. A *10* for sure!",
+			"princess": "I've never felt anything worse! It was a *10*!",
+			"dandy": "Haven't felt nothing worse since my musket wound in '62. That's 1862 for you youngin's.",
+			"police": "That stung, you betcha! A 10 if anything ever was.",
+			"sports": "It was even worse than the time I broke my arm! It was definitely a *10*."
+		}
+	    },
+
+	"associated_symptoms": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I haven't noticed anything else.",
+			"jock": "Dude, nah, there hasn't been anything else.",
+			"sweet": "No, I haven't noticed anything else.",
+			"dad": "No, I haven't noticed anything else.",
+			"princess": "Just the pain! Make it go away!",
+			"dandy": "Nothing else.",
+			"police": "Nothing else.",
+			"sports": "It hurts!"
+		}
+	    },
+	"timing": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It happened *once, all of a sudden*. It was like I got shot.",
+			"jock": "Dude, it was just *out of nowhere* while I was on my way to the gym. It felt like I got shot.",
+			"sweet": "I was just feeding my cat when it *struck all of a sudden*. I was afraid I'd been shot!",
+			"dad": "I was playing with my kids when it felt like I was shot and I fell to the ground. *If I had known* this would happen, I'd have spared them from seeing me like that.",
+			"princess": "I was just playing dress-up and then BAM! I thought somebody shot me!",
+			"dandy": "Was sitting on the swing on my porch when *out of nowhere*, like not even Montana-like nowhere, I thought I'd been shot.",
+			"police": "Was out on a crime scene, when, ya know, I felt like the victim, like I'd been shot.",
+			"sports": "I was practicing my puck-handling when *all of a sudden* it felt like someone hit me with a puck!"
+		}
+	    },
+	"family_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Nothing that I know of.",
+			"jock": "Dude, I can't think of anything.",
+			"sweet": "I can't remember any family health issues. We're a hardy bunch.",
+			"dad": "I've never heard of anything like this in my family.",
+			"princess": "This hasn't happened to anyone else in my family!",
+			"dandy": "I've seen a lot of family come and go, and nothing like this.",
+			"police": "Since the old-timers moved out here, my family's had a bit of high blood pressure.",
+			"sports": "This hasn't happened to anyone else in my family!"
+		}
+	    },
+	"social_history": 
+            {
+                "person": "patient",
+		"speech": {
+			"default": "I don't smoke or drink.",
+			"jock": "Dude, I don't smoke or drink. I don't want to mess up my physique.",
+			"sweet": "Oh, dear. No, I don't smoke or drink.",
+			"dad": "Never picked up a cigarette or beer in my life. Even in college, believe it or not!",
+			"princess": "What?! I'm just a kid!",
+			"dandy": "How d'you think I lasted this long - stayed away from accursed smokes and drink!",
+			"police": "No smoking or drink for me.",
+			"sports": "My mom told me I'm too cool to do cigarettes or drink 'Daddy's drinks'."
+		}
+	    },
+	"past_medical_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Well, I've been diagnosed with *high blood pressure*.",
+			"jock": "Dude, I think my *blood pressure is a little high*, or something like that.",
+			"sweet": "Yes, I've had *high blood pressure* for awhile.",
+			"dad": "My doctor used a sphygmomajiggy and said I have *high blood pressure*.",
+			"princess": "Last time I was here, the doctor told me I had high blood pressure like my parents.",
+			"dandy": "Doctor told me I got blood pressure high as the moon!",
+			"police": "Last time at the doctor, he looked like he had real bad news, ya know, but it was just high blood pressure.",
+			"sports": "Last time I was here, the doctor told me I had high blood pressure."
+		}
+	    },
+	"surgical_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I've never had surgery.",
+			"jock": "Dude, I've never had any surgeries.",
+			"sweet": "No, I've never had surgery. I even still have my tonsils!",
+			"dad": "All my kids have had their appendixes removed, but no surgery for me yet!",
+			"princess": "Is that where they cut you open? Gross! I've never had that, and I don't ever want to!",
+			"dandy": "No dirty doctor's had his hands inside me!",
+			"police": "Never been in the hospital since the day I was born.",
+			"sports": "My friend had to have surgery and it was SO COOL. Not me, though."
+		}
+	    },
+	"medications": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I'm not taking any medication.",
+			"jock": "Dude, I don't take anything. Seriously dude, not even steroids. Impressed?",
+			"sweet": "I'm not currently taking any medication. Why do you look so surprised?",
+			"dad": "Nosirree!",
+			"princess": "Yuk! No way!",
+			"dandy": "I get 3 pill holders each Christmas, and haven't got anything to use them for yet!",
+			"police": "We don't do drugs down at the department.",
+			"sports": "Do Flintstones vitamins count?"
+		}
+	    }
+    },
+    "physical": {
+	"cardiac": "There's a pretty big difference in blood pressure between the left and right arms.",
+	"pulmonary": "Everything seems normal.",
+	"abdominal": "Everything seems normal.",
+	"musculoskeletal": "Everything seems normal.",
+	"neurologic": "Everything seems normal.",
+	"dermatologic": "Everything seems normal."
+    },
+    "labs": {
+	"complete_blood_count": "Everything seems normal.",
+	"sputum_culture": "Doesn't look like anything grew.",
+	"ecg": "Everything seems normal.",
+        "other_blood_tests": "Everything seems normal."
+    },
+    "imaging": {
+	"x_ray": "Looks like the mediastinum is a bit widened.",
+	"echocardiogram": "There's an intimal flap separating two aortic channels.",
+	"ct": "There appears to be an aortic intramural hematoma. There's also an intimal flap separating two aortic channels.",
+	"mri": "There's an intimal flap separating two aortic channels."
+    },
+    "treatment": [
+	"Surgery", "Beta blockers", "Analgesics"
+    ],
+    "treatment_response_success": {
+	"default": "That feels much better!",
+	"jock": "Dude, I feel great! This calls for some celebratory push-ups!",
+	"sweet": "Oh, my! I feel so much better! Thanks so much, deary!",
+	"dad": "By golly, that did the trick!",
+	"princess": "I feel so pretty again!",
+	"dandy": "Hallelujah! Thanks for usin' your mystical powers and all!",
+	"police": "I'm right ready new, you betcha!",
+	"sports": "Wow! I feel great! Time to get out and play!"
+    },
+    "treatment_response_failure": {
+	"default": "I don't think that helped...",
+	"jock": "Dude, I'm pretty sure that didn't work...",
+	"sweet": "Oh, dear... I'm not sure that did any good...",
+	"dad": "Gee, I don't feel any different...",
+	"princess": "That didn't do anything!",
+	"dandy": "Still feel like hell...",
+	"police": "Ya know, I don't know that did much...",
+	"sports": "I still feel sick! Hurry up!"
+    }
+}
