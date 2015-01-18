@@ -281,15 +281,18 @@ public class BattleController : MonoBehaviour {
 
 	public void ChooseDiagnostic(string diagname){
 		Disease dwtSickness = enemy.disease;
-		if(diagname == dwtSickness.name){
+		if (diagname == dwtSickness.name) {
 			treatButton.interactable = true;
 			diagnoseImage.enabled = false;
 			diagnoseButton.interactable = false;
 
-			Vector2 pos = treatmentImage.GetComponent<RectTransform>().anchoredPosition;
-			diagnoseImage.GetComponent<RectTransform>().anchoredPosition = pos;
-			treatmentImage.GetComponent<RectTransform>().anchoredPosition = imagePos;
+			Vector2 pos = treatmentImage.GetComponent<RectTransform> ().anchoredPosition;
+			diagnoseImage.GetComponent<RectTransform> ().anchoredPosition = pos;
+			treatmentImage.GetComponent<RectTransform> ().anchoredPosition = imagePos;
 
+		} 
+		else {
+			healthSlider.value = healthSlider.value - 0.30f;
 		}
 	}
 
@@ -303,8 +306,11 @@ public class BattleController : MonoBehaviour {
 			}
 		}
 
-		if(foundTreatment){
-			CorrectTreatment(treatName);
+		if (foundTreatment) {
+			CorrectTreatment (treatName);
+		} 
+		else {
+			healthSlider.value = healthSlider.value - 0.30f;
 		}
 	}
 
