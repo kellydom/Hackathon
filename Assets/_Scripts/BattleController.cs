@@ -222,12 +222,22 @@ public class BattleController : MonoBehaviour {
 		}
 		string phrase;
 		if (currentAction.type == Action.Type.HISTORY) {
+			healthSlider.value = healthSlider.value - 0.05f;
 			Dialogue question = currentAction.question;
-			BattleDialogue.S.SaySomething(Dialogue.Speaker.Doctor, question.responses[Person.Personality.Default]);
-			phrase = response.responses[enemy.personality];
-			StartCoroutine(WaitForDialogue(response.speaker, phrase));
-		} else {
-			phrase = response.responses[Person.Personality.Default];
+			BattleDialogue.S.SaySomething (Dialogue.Speaker.Doctor, question.responses [Person.Personality.Default]);
+			phrase = response.responses [enemy.personality];
+			StartCoroutine (WaitForDialogue (response.speaker, phrase));
+		} else if (currentAction.type == Action.Type.IMAGING) {
+			if(actionName == "ct"){
+				healthSlider.value = healthSlider.value - 0.30f;
+			}
+			phrase = response.responses [Person.Personality.Default];
+			BattleDialogue.S.SaySomething (response.speaker, phrase);
+		} else if (currentAction.type == Action.Type.LAB) {
+			phrase = response.responses [Person.Personality.Default];
+			BattleDialogue.S.SaySomething (response.speaker, phrase);
+		} else if (currentAction.type == Action.Type.PHYSICAL) {
+			phrase = response.responses [Person.Personality.Default];
 			BattleDialogue.S.SaySomething (response.speaker, phrase);
 		}
 	}
@@ -516,6 +526,7 @@ public class BattleController : MonoBehaviour {
 		Vector2 ap = healthSlider.GetComponent<RectTransform>().anchoredPosition;
 		ap.y = -20;
 		healthSlider.GetComponent<RectTransform>().anchoredPosition = ap;
+		healthSlider.value = healthSlider.maxValue;
 
 		
 		ap = backButton.GetComponent<RectTransform>().anchoredPosition;
