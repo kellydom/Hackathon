@@ -22,7 +22,7 @@
 	},
 	"labs":{
 		"complete_blood_count":false,
-		"sputnum_culture":false,
+		"sputum_culture":false,
 		"ecg":false
 	},
 	"imaging":{

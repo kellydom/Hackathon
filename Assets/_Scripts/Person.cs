@@ -10,7 +10,7 @@ public class Person : MonoBehaviour {
 		Default
 	};
 
-	Personality personality;
+	public Personality personality;
 	Demographic dems;
 	public Disease disease;
 

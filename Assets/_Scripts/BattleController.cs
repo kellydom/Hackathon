@@ -9,6 +9,8 @@ public class BattleController : MonoBehaviour {
 	public GameObject patient;
 	public GameObject doctor;
 
+	public Person enemy;
+
 	public Slider healthSlider;
 	public List<Button> topLevelButtons;
 
@@ -97,6 +99,23 @@ public class BattleController : MonoBehaviour {
 
 	public void PerformAction(string actionName){
 		print (actionName);
+		Disease ailment = enemy.disease;
+
+		Dialogue response = ailment.responseDictionary[actionName];
+		Action currentAction = null;
+		foreach (Action action in GameController.S.actions) {
+			if(actionName == action.name) {
+				currentAction = action;
+				break;
+			}
+		}
+		string phrase;
+		if (currentAction.type == Action.Type.HISTORY) {
+			phrase = response.responses[enemy.personality];
+		} else {
+			phrase = response.responses[Person.Personality.Default];
+		}
+		print (phrase);
 	}
 
 
@@ -446,8 +465,9 @@ public class BattleController : MonoBehaviour {
 	}
 
 
-	public void BattleStart(Sprite patientSprite){
-		patient.GetComponentInChildren<SpriteRenderer>().sprite = patientSprite;
+	public void BattleStart(GameObject newEnemy){
+		patient.GetComponentInChildren<SpriteRenderer>().sprite = newEnemy.GetComponentInChildren<SpriteRenderer>().sprite;
+		enemy = newEnemy.GetComponent<Person>();
 		healthSlider.enabled = true;
 		Vector2 ap = healthSlider.GetComponent<RectTransform>().anchoredPosition;
 		ap.y = -20;

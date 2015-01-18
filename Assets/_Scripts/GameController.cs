@@ -208,7 +208,7 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	IEnumerator FadeToBattle(Sprite patientSprite){
+	IEnumerator FadeToBattle(GameObject patient){
 		blockingPlane.renderer.enabled = true;
 
 		float t = 0;
@@ -224,7 +224,7 @@ public class GameController : MonoBehaviour {
 		}
 		overWorldCam.enabled = false;
 		battleCam.enabled = true;
-		BattleController.S.BattleStart(patientSprite);
+		BattleController.S.BattleStart(patient);
 
 		blockingPlane.transform.position = battleCam.transform.position + battleCam.transform.forward / 2;
 		blockingPlane.transform.parent = battleCam.transform;
@@ -253,9 +253,9 @@ public class GameController : MonoBehaviour {
 		blockingPlane.transform.rotation = Quaternion.Euler (localEuler);
 	}
 
-	public void GoToBattle(Sprite patientSprite){
+	public void GoToBattle(GameObject patient){
 		inOverworld = false;
-		StartCoroutine(FadeToBattle(patientSprite));
+		StartCoroutine(FadeToBattle(patient));
 	}
 
 	public void GoToOverworld(){

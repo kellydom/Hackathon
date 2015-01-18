@@ -11,7 +11,7 @@ public class Dialogue : MonoBehaviour {
 	};
 
 	Speaker speaker;
-	Dictionary<Person.Personality, string> responses = new Dictionary<Person.Personality, string>();
+	public Dictionary<Person.Personality, string> responses = new Dictionary<Person.Personality, string>();
 	List<string> unlocks = new List<string>();
 	List<string> keyItems = new List<string>();
 

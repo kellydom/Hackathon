@@ -77,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour {
 			AI ai = col.gameObject.GetComponent<AI>();
 			currAI = ai;
 			if(ai.shouldStartBattle){
-				GameController.S.GoToBattle(col.gameObject.GetComponentInChildren<SpriteRenderer>().sprite);
+				GameController.S.GoToBattle(col.gameObject);
 			}
 			else{
 				if(speechBubble != null){
