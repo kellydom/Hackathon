@@ -1,0 +1,217 @@
+{
+    "name": "Pneumonia",
+    "chief_complaint": {
+	"default": "Ugh... I'm having a really hard time breathing.",
+	"jock": "Dude, I really can't breathe.",
+	"sweet": "Oh, dear. Breathing sure has been difficult lately...",
+	"dad": "Gee whiz, I can't breathe like I used to!",
+	"princess": "Help me! I can't breathe!",
+	"dandy": "",
+	"police": "",
+	"sports": ""
+    },
+    "demographics": {
+	"sex": { "male": 0.5, "female": 0.5 },
+	"age": { "young": 0.3, "middle": 0.3, "old": 0.6 },
+	"race": { "black": 0.25, "white": 0.25, "asian": 0.25, "hispanic": 0.25 }
+    },
+    "history": {
+	"provocative_palliative": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "No, it's pretty much always the same.",
+			"jock": "Dude, nothing helps.",
+			"sweet": "I'm afraid nothing seems to make a difference.",
+			"dad": "Can't do anything about it!",
+			"princess": "No, it's always bad!.",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"quality": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I don't know, I just get exhausted much easier.",
+			"jock": "Dude, I don't even know. I just can't breathe like I used to. And you can't lift if you can't breathe.",
+			"sweet": "I just can't get around like I used to. I had to miss out on my power walk yesterday!",
+			"dad": "Golly, I'm not sure. I just get exhausted mighty easily. Didn't used to be like that.",
+			"princess": "I don't know, I just can't breathe like I used to!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"radiation": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "No, not that I can tell.",
+			"jock": "Dude, I don't think so.",
+			"sweet": "Oh, I don't think so.",
+			"dad": "Hmmm... don't think so.",
+			"princess": "No! Just make it stop!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"severity": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Maybe a 3 or 4.",
+			"jock": "Dude, I don't know. Maybe a 3 or 4. It may not sound like much, but it's making it really hard to do push-ups.",
+			"sweet": "It's probably a 6 or 7, which is pretty bad, especially for someone my age! ",
+			"dad": "Gosh, probably a *3* or *4*.",
+			"princess": "I don't know! 3 or 4?",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+	    },
+
+	"associated_symptoms": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I've also got some chest pain. Oh, and I've been coughing up this red-brownish stuff.",
+			"jock": "Dude, my chest kinda hurts to. I've been coughing up this rust-colored stuff, too. I know the color of rust since I go outside and lift weights every time it rains.",
+			"sweet": "Well, now that you mention it, my chest hurts a fair bit, too. I've also started coughing up some vile rust-colored fluid.",
+			"dad": "My chest is also taking a pounding, and I started coughing up this nasty looking reddish-brown stuff. Am I contagious? I don't want to get my kids sick.",
+			"princess": "My chest hurts, too! And now I'm coughing up this yucky reddish-brownish gunk! It's disgusting!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"timing": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "It just kinda hit me over the last day or two.",
+			"jock": "Dude, it's weird. Just the other day I was killin' it at the gym like I always do, and now look at me.",
+			"sweet": "I was quite well just the other day, but now I can hardly walk a full block without getting winded!",
+			"dad": "Golly, just the other day I felt fine. But look at me now! It's definitely got me a bit worried.",
+			"princess": "I was fine just the other day, and now look at me! I'm a disaster!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"family_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Nothing that I know of.",
+			"jock": "Dude, I can't think of anything.",
+			"sweet": "I can't remember any family health issues. We're a hardy bunch.",
+			"dad": "Not unless good looks are a disease!",
+			"princess": "Nobody I know has ever had this!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"social_history": 
+            {
+                "person": "patient",
+		"speech": {
+			"default": "I don't smoke or drink.",
+			"jock": "Dude, I don't smoke or drink. I don't want to mess up my physique.",
+			"sweet": "Oh, dear. No, I don't smoke or drink.",
+			"dad": "Never picked up a cigarette or beer in my life. Even in college, believe it or not!",
+			"princess": "What?! I'm just a kid!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"past_medical_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "Nothing I can think of; I've been pretty healthy.",
+			"jock": "Dude, I've been in prime health for as long as I can remember.",
+			"sweet": "I can't think of anything. I was a healthy young whipper-snapper!",
+			"dad": "I'm squeaky-clean as the day I was born, at least medically.",
+			"princess": "I never get sick!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"surgical_history": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I've never had surgery.",
+			"jock": "Dude, I've never had any surgeries.",
+			"sweet": "No, I've never had surgery. I even still have my tonsils!",
+			"dad": "All my kids have had their appendixes removed, but no surgery for me yet!",
+			"princess": "Is that where they cut you open? Gross! I've never had that, and I don't ever want to!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    },
+	"medications": 
+	    {
+		"person": "patient",
+		"speech": {
+			"default": "I'm not taking any medication.",
+			"jock": "Dude, I don't take anything. Seriously dude, not even steroids. Impressed?",
+			"sweet": "I'm not currently taking any medication. Why do you look so surprised?",
+			"dad": "Nosirree!",
+			"princess": "Yuk! No way!",
+			"dandy": "",
+			"police": "",
+			"sports": ""
+		}
+	    }
+    },
+    "physical": {
+	"cardiac": "Everything seems normal.",
+	"pulmonary": "Sounds like there are some crackles and wheezes on both sides. There's also a bit of dullness to percussion.",
+	"abdominal": "Everything seems normal.",
+	"musculoskeletal": "Everything seems normal.",
+	"neurologic": "Everything seems normal.",
+	"dermatologic": "Everything seems normal."
+    },
+    "labs": {
+	"complete_blood_count": "The white blood cell count is a little high. There also appears to be a left shift.",
+	"sputum_culture": "We got something! Looks like lancet-shaped, gram-positive diplococci",
+	"ecg": "Everything seems normal.",
+    "other_blood_tests": "Everything seems normal."
+    },
+    "imaging": {
+	"x_ray": "There's some consolidation in the right lower lobe.",
+	"echocardiogram": "Everything seems normal.",
+	"ct": "Everything seems normal.",
+	"mri": "Everything seems normal."
+    },
+    "treatment": [
+	"Thrombolytics", "Anticoagulants", "Stenting", "Analgesics"
+    ],
+    "treatment_response_success": {
+	"default": "That feels much better!",
+	"jock": "Dude, I feel great! This calls for some celebratory push-ups!",
+	"sweet": "Oh, my! I feel so much better! Thanks so much, deary!",
+	"dad": "By golly, that did the trick!",
+	"princess": "I feel so pretty again!",
+	"dandy": "Hallelujah! Thanks for usin' your mystical powers and all!",
+	"police": "I'm right ready new, you betcha!",
+	"sports": "Wow! I feel great! Time to get out and play!"
+    },
+    "treatment_response_failure": {
+	"default": "I don't think that helped...",
+	"jock": "Dude, I'm pretty sure that didn't work...",
+	"sweet": "Oh, dear... I'm not sure that did any good...",
+	"dad": "Gee, I don't feel any different...",
+	"princess": "That didn't do anything!",
+	"dandy": "Still feel like hell...",
+	"police": "Ya know, I don't know that did much...",
+	"sports": "I still feel sick! Hurry up!"
+    }
+}
