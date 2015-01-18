@@ -65,17 +65,19 @@ public class GameController : MonoBehaviour {
 					typeObj = actionJSON.list[i];
 					for(int typeIterator = 0; typeIterator < typeObj.Count; typeIterator++)
 					{	
-						JSONObject questionObj = typeObj.list[i];
+						JSONObject questionObj = typeObj.list[typeIterator];
 						string name = typeObj.keys[typeIterator];
+						print (name);
 						bool isUnlocked = false;
 						Dialogue question = null;
 						Dictionary<Person.Personality, string> docsPersonality = new Dictionary<Person.Personality, string>();
-						for(int questionIterator = 0; questionIterator < questionObj.Count; questionIterator++)
+						for(int questionIterator = 0; questionIterator < questionObj.keys.Count; questionIterator++)
 						{
 							switch((string)questionObj.keys[questionIterator])
 							{
 							case "speech":
 								string query = questionObj.list[questionIterator].str;
+								print (query);
 								docsPersonality.Add(Person.Personality.Default, query);
 								question = new Dialogue(Dialogue.Speaker.Doctor, docsPersonality, null, null);
 								break;
