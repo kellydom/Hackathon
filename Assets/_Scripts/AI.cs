@@ -32,6 +32,7 @@ public class AI : MonoBehaviour {
 		if(transform.position.y < 1.3f){
 			Vector3	pos = transform.position;
 			pos.y = 1.3f;
+			transform.position = pos;
 		}
 	}
 	
